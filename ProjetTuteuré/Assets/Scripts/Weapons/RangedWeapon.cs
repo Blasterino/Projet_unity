@@ -24,13 +24,15 @@ public class RangedWeapon : Weapon {
         this.ammunition = this.totalammunition;
     }
 
-    public void Fire()
+    public void Fire(Vector2 mousePosition)
     {
-        if(ammunition != 0)
+
+        
+        if (ammunition != 0)
         {
             ammunition--;
             Vector2 projectilePosition = player.GetComponent<Transform>().position;
-            Vector3 originDirection = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f));//10.0f car si z = 0f, la fonction retourne la position de la caméra
+            Vector3 originDirection = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, 10f));//10.0f car si z = 0f, la fonction retourne la position de la caméra
             GameObject projectileInstance;
             Vector3 projectileDirection;
 

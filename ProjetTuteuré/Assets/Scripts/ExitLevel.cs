@@ -7,7 +7,9 @@ public class ExitLevel : MonoBehaviour
 {
     public GameObject winIndicator;
     private bool aFini = false;
-    public GameObject player;
+    private Player player;
+    private GameManager gameManager;
+    private GameObject camera;
     bool fini = false;
 
     //Win
@@ -15,18 +17,20 @@ public class ExitLevel : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        camera = GameObject.Find("Main Camera");
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (aFini)
         {
-            GameObject.Find("GameManager").GetComponent<GameManager>().genereMap();
-            GameObject.Find("GameManager").GetComponent<GameManager>().initieNiveau(true);
+            gameManager.genereMap();
+            gameManager.initieNiveau(true);
             player.transform.position = new Vector3(85.5f,-59f,0.0f);
-            GameObject.Find("Player").GetComponent<Player>().canOpenMenus = true;
-            GameObject.Find("Main Camera").transform.position = new Vector3(85.5f, -59, -7);
+            player.canOpenMenus = true;
+            camera.transform.position = new Vector3(85.5f, -59, -7);
             aFini = false;
             fini = false;
         }
@@ -36,7 +40,7 @@ public class ExitLevel : MonoBehaviour
     {
         if(collision.tag == "Player" && !fini)
         {
-            GameObject.Find("Player").GetComponent<Player>().canOpenMenus = false;
+            player.canOpenMenus = false;
             GameObject.Find("GameAudioManager").GetComponent<AudioSource>().Stop();
             StartCoroutine("ShowWin");
             StartCoroutine("PlayFinalAudio");
@@ -62,5 +66,10 @@ public class ExitLevel : MonoBehaviour
         GameObject.Find("GameAudioManager").GetComponent<AudioSource>().PlayOneShot(winClip);
         yield return new WaitWhile(() => GameObject.Find("GameAudioManager").GetComponent<AudioSource>().isPlaying);
         aFini = true;
+    }
+
+    public void setPlayer(GameObject player)
+    {
+        this.player = player.GetComponent<Player>();
     }
 }

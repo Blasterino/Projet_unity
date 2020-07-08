@@ -35,7 +35,7 @@ public class SalleManager : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         if (isRoomBoss)
         {
             if (!boss.GetComponent<Enemy>().isAlive)
@@ -69,7 +69,7 @@ public class SalleManager : MonoBehaviour {
     {
         if (GetComponentInChildren<ExitLevel>()!= null)
         {
-            GetComponentInChildren<ExitLevel>().player = pl;
+            GetComponentInChildren<ExitLevel>().setPlayer(pl);
         }
         
         if (!gameManager.GetComponent<GameManager>().isDebut(room) || isRoomBoss)

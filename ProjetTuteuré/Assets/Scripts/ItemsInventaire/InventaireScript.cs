@@ -13,7 +13,7 @@ public class InventaireScript : MonoBehaviour {
 
     public GameObject[] listeItems;
     public GameObject player;
-    GameObject c;
+    GameObject inventoryCanvas;
 
 	// Use this for initialization
 	void Start () {
@@ -21,10 +21,16 @@ public class InventaireScript : MonoBehaviour {
 
         listeItems = new GameObject[10];
         //GameObject i = (GameObject)Instantiate(Resources.Load("Jean"));
-        c = player.GetComponent<MenusJeu>().canvas2;
+        setInventoryCanvas();
         updateMenuInventaire();
         //addItem(i);
         //updateMenuInventaire();
+
+    }
+
+    private void setInventoryCanvas()
+    {
+        inventoryCanvas = player.GetComponent<MenusJeu>().getInventoryCanvas();
     }
 
     public void save(String saveName)
@@ -120,37 +126,37 @@ public class InventaireScript : MonoBehaviour {
         //On update toutes les images des buttons de l'inventaire en trouvant le bouton dans les gameobjects puis en changeant leur sprite
         for (int i = 0; i < 10; i++)
         {
-            GameObject button = c.GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>().GetChild(0).gameObject.GetComponent<RectTransform>().GetChild(i).gameObject;
+            GameObject buttonInv = inventoryCanvas.transform.GetChild(0).transform.GetChild(0).gameObject.transform.GetChild(i).gameObject;
 
             if (listeItems[i] != null)
             {
-                button.GetComponent<Image>().sprite = listeItems[i].GetComponent<SpriteRenderer>().sprite;
+                buttonInv.GetComponent<Image>().sprite = listeItems[i].GetComponent<SpriteRenderer>().sprite;
             } else
             {
-                button.GetComponent<Image>().sprite = null;
+                buttonInv.GetComponent<Image>().sprite = null;
             }
         }
 
 
 
         //On cherche l'image de l'objet cac dans l'inventaire et on affiche le sprite correspondant
-        GameObject imageCac = c.GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>().GetChild(4).gameObject;
+        GameObject imageCac = inventoryCanvas.GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>().GetChild(4).gameObject;
         imageCac.GetComponent<Image>().sprite = player.GetComponent<Player>().armeCorpsACorpsEquipee.GetComponent<SpriteRenderer>().sprite;
 
         //Pareil pour l'arme à distance
-        GameObject imageDist = c.GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>().GetChild(5).gameObject;
+        GameObject imageDist = inventoryCanvas.GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>().GetChild(5).gameObject;
         imageDist.GetComponent<Image>().sprite = player.GetComponent<Player>().armeDistanceEquipee.GetComponent<SpriteRenderer>().sprite;
 
         //Pareil pour l'armure de tête
-        GameObject imageHead = c.GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>().GetChild(8).gameObject;
+        GameObject imageHead = inventoryCanvas.GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>().GetChild(8).gameObject;
         imageHead.GetComponent<Image>().sprite = player.GetComponent<Player>().armureTeteEquipee.GetComponent<SpriteRenderer>().sprite;
 
         //Pareil pour l'armure de torse
-        GameObject imageChest = c.GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>().GetChild(9).gameObject;
+        GameObject imageChest = inventoryCanvas.GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>().GetChild(9).gameObject;
         imageChest.GetComponent<Image>().sprite = player.GetComponent<Player>().armureTorseEquipee.GetComponent<SpriteRenderer>().sprite;
 
         //Pareil pour l'armure de jambes
-        GameObject imageLegs = c.GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>().GetChild(10).gameObject;
+        GameObject imageLegs = inventoryCanvas.GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>().GetChild(10).gameObject;
         imageLegs.GetComponent<Image>().sprite = player.GetComponent<Player>().armureJambesEquipee.GetComponent<SpriteRenderer>().sprite;
 
 
@@ -158,18 +164,18 @@ public class InventaireScript : MonoBehaviour {
         updateStats();
 
         //On change la force
-        GameObject texteForce = c.GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>().GetChild(1).gameObject;
+        GameObject texteForce = inventoryCanvas.GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>().GetChild(1).gameObject;
         texteForce.GetComponent<Text>().text = "Strength : "+Convert.ToInt32(player.GetComponent<Player>().strength);
 
         //L'endurance
-        GameObject texteEndu = c.GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>().GetChild(2).gameObject;
+        GameObject texteEndu = inventoryCanvas.GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>().GetChild(2).gameObject;
         texteEndu.GetComponent<Text>().text = "Endurance : " + Convert.ToInt32(player.GetComponent<Player>().endurance);
 
         //Et l'agilité
-        GameObject texteAgi = c.GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>().GetChild(3).gameObject;
+        GameObject texteAgi = inventoryCanvas.GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>().GetChild(3).gameObject;
         texteAgi.GetComponent<Text>().text = "Agility : " + Convert.ToInt32(player.GetComponent<Player>().agility);
 
-        GameObject textGold = c.GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>().GetChild(11).gameObject;
+        GameObject textGold = inventoryCanvas.GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>().GetChild(11).gameObject;
         textGold.GetComponent<Text>().text = "Gold: " + player.GetComponent<Player>().gold + " g";
 
     }

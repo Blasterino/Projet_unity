@@ -4,157 +4,225 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System.Runtime.CompilerServices;
 
 public class MenusJeu : MonoBehaviour
     {
 
-    public bool showGUI = false;
-    public bool showGUI2 = false;
-    public bool showGUI3 = false;
-    public GameObject canvas1, canvas2, canvas3, canvas4, canvas5, canvas6, canvas7, uiarmes, lifebar;
-    public Text text1, text2, text3, text4, text5, text6;
+    private bool showPauseMenu = false;
+    private bool showInventory = false;
+    private bool showSaveMenu = false;
+    private Player player;
+    private GameObject pauseMenuCanvas, inventoryCanvas, saveCanvas, enterName1Canvas, loadCanvas, enterName2Canvas, enterName3Canvas, uiarmes, lifebar;
+    private Text textSave1, textSave2, textSave3, textLoad1, textLoad2, textLoad3;
+    private GameObject UIObject;
+
+    Inputs inputs;
+    float inventoryKeyPressed;
+    float pauseKeyPressed;
 
     // Use this for initialization
-    void Start()
+    void Awake()
         {
-        canvas3.SetActive(false);
-        canvas4.SetActive(false);
-        canvas5.SetActive(false);
-        canvas6.SetActive(false);
-        canvas7.SetActive(false);
+
+        //inputs
+        inputs = new Inputs();
+        inputs.MenuControls.OpenInventory.performed += ctx => inventoryKeyPressed = ctx.ReadValue<float>();
+        inputs.MenuControls.PauseMenu.performed += ctx => pauseKeyPressed = ctx.ReadValue<float>();
+
+        //récupère le player
+        player = GameObject.Find("Player").GetComponent<Player>();
+        //récupère l'UI
+        UIObject = GameObject.FindGameObjectWithTag("UI");
+        //récupération des canvas
+        pauseMenuCanvas = UIObject.transform.GetChild(0).gameObject;
+        inventoryCanvas = UIObject.transform.GetChild(1).gameObject;
+        enterName1Canvas = UIObject.transform.GetChild(3).gameObject;
+        loadCanvas = UIObject.transform.GetChild(4).gameObject;
+        saveCanvas = UIObject.transform.GetChild(2).gameObject;
+        enterName2Canvas = UIObject.transform.GetChild(6).gameObject;
+        enterName3Canvas = UIObject.transform.GetChild(7).gameObject;
+        uiarmes = UIObject.transform.GetChild(8).gameObject;
+        lifebar = GameObject.FindGameObjectWithTag("Player").transform.GetChild(0).gameObject;
+
+        //récupération des textes
+        textSave1 = enterName1Canvas.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>();
+        textSave2 = enterName2Canvas.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>();
+        textSave3 = enterName3Canvas.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.GetComponent<Text>();
+        textLoad1 = loadCanvas.transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<Text>();
+        textLoad2 = loadCanvas.transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<Text>();
+        textLoad3 = loadCanvas.transform.GetChild(2).transform.GetChild(0).gameObject.GetComponent<Text>();
+
+        saveCanvas.SetActive(false);
+        enterName1Canvas.SetActive(false);
+        loadCanvas.SetActive(false);
+        enterName2Canvas.SetActive(false);
+        enterName3Canvas.SetActive(false);
     }
 
-        // Update is called once per frame
-        void Update()
+    //used to handle key hold
+    float lastInvPress;
+    float lastPausePress;
+    bool invKeyDown = false;
+    bool pauseKeyDown = false;
+
+    //used to handle key hold
+    private void Update()
+    {
+
+        if(lastInvPress == 0 && inventoryKeyPressed == 1)
         {
-            if (Input.GetKeyDown(KeyCode.Escape) && showGUI2 == false && showGUI3== false && GameObject.Find("Player").GetComponent<Player>().canOpenMenus)
+            invKeyDown = true;
+        }
+
+        if (lastPausePress == 0 && pauseKeyPressed == 1)
+        {
+            pauseKeyDown = true;
+        }
+       
+
+        lastInvPress = inventoryKeyPressed;
+        lastPausePress = pauseKeyPressed;
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+        {
+            
+            if (pauseKeyDown && showInventory == false && showSaveMenu== false && player.canOpenMenus)
             {
-                showGUI = !showGUI;
+                showPauseMenu = !showPauseMenu;
             }
 
-            if (Input.GetKeyDown(KeyCode.A) && showGUI == false && showGUI3==false && GameObject.Find("Player").GetComponent<Player>().canOpenMenus)
+            if (invKeyDown && showPauseMenu == false && showSaveMenu==false && player.canOpenMenus)
             {
-                showGUI2 = !showGUI2;
+                showInventory = !showInventory;
             }
 
-            if (showGUI && !showGUI2 && !showGUI3)
+            if (showPauseMenu && !showInventory && !showSaveMenu)
             {
-                canvas1.SetActive(true);
+                pauseMenuCanvas.SetActive(true);
                 uiarmes.SetActive(false);
                 lifebar.SetActive(false);
                 Time.timeScale = 0;
             }
-            else if (!showGUI && showGUI2 && !showGUI3)
+            else if (!showPauseMenu && showInventory && !showSaveMenu)
             {
                 uiarmes.SetActive(false);
-                canvas2.SetActive(true);
+                inventoryCanvas.SetActive(true);
             }
-            else if (!showGUI && !showGUI2 && showGUI3)
+            else if (!showPauseMenu && !showInventory && showSaveMenu)
             {
+
             }
             else
             {
                 uiarmes.SetActive(true);
                 //On remet à jour les images après les changements dans l'inventaire, c'est un peu du cheat mais c'est normal
                 GameObject UIEquip = GameObject.FindGameObjectWithTag("ArmeUI");
-                UIEquip.GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>().GetChild(0).gameObject.GetComponent<Image>().sprite = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().armeCorpsACorpsEquipee.GetComponent<SpriteRenderer>().sprite;
-                UIEquip.GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>().GetChild(1).gameObject.GetComponent<Image>().sprite = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().armeDistanceEquipee.GetComponent<SpriteRenderer>().sprite;
+                UIEquip.GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>().GetChild(0).gameObject.GetComponent<Image>().sprite = player.armeCorpsACorpsEquipee.GetComponent<SpriteRenderer>().sprite;
+                UIEquip.GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>().GetChild(1).gameObject.GetComponent<Image>().sprite = player.armeDistanceEquipee.GetComponent<SpriteRenderer>().sprite;
                 UIEquip.GetComponent<RectTransform>().GetChild(2).GetComponent<RectTransform>().GetChild(0).gameObject.GetComponent<Text>().text =
-                GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().armeDistanceEquipee.GetComponent<RangedWeapon>().ammunition + "/" +
-                GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().armeDistanceEquipee.GetComponent<RangedWeapon>().totalammunition;
+                player.armeDistanceEquipee.GetComponent<RangedWeapon>().ammunition + "/" +
+                player.armeDistanceEquipee.GetComponent<RangedWeapon>().totalammunition;
 
                 lifebar.SetActive(true);
-                canvas1.SetActive(false);
-                canvas2.SetActive(false);
+                pauseMenuCanvas.SetActive(false);
+                inventoryCanvas.SetActive(false);
                 Time.timeScale = 1;
             }
+
+        //reset because of update    
+        invKeyDown = false;
+        pauseKeyDown = false;
+
     }
 
     public void Continue()
     {
-        showGUI = false;
-        showGUI3 = false;
-        canvas1.SetActive(false);
-        canvas4.SetActive(false);
-        canvas5.SetActive(false);
-        canvas6.SetActive(false);
-        canvas7.SetActive(false);
+        showPauseMenu = false;
+        showSaveMenu = false;
+        pauseMenuCanvas.SetActive(false);
+        enterName1Canvas.SetActive(false);
+        loadCanvas.SetActive(false);
+        enterName2Canvas.SetActive(false);
+        enterName3Canvas.SetActive(false);
         Time.timeScale = 1;
     }
 
     public void save()
     {
-        canvas1.SetActive(false);
-        showGUI = false;
-        showGUI3 = true;
-        canvas3.SetActive(true);
+        pauseMenuCanvas.SetActive(false);
+        showPauseMenu = false;
+        showSaveMenu = true;
+        saveCanvas.SetActive(true);
         DatasNames datasnames = (DatasNames)DataManager.LoadNames("names.sav");
         if (datasnames != null)
         {
             if (datasnames.name != null)
             {
-                text1.text = datasnames.name;
+                textSave1.text = datasnames.name;
             }
             if (datasnames.name2 != null)
             {
-                text2.text = datasnames.name2;
+                textSave2.text = datasnames.name2;
             }
             if (datasnames.name3 != null)
             {
-                text3.text = datasnames.name3;
+                textSave3.text = datasnames.name3;
             }
         }
     }
 
     public void load()
     {
-        canvas1.SetActive(false);
-        showGUI = false;
-        showGUI3 = true;
-        canvas5.SetActive(true);
+        pauseMenuCanvas.SetActive(false);
+        showPauseMenu = false;
+        showSaveMenu = true;
+        loadCanvas.SetActive(true);
         DatasNames datasnames = (DatasNames)DataManager.LoadNames("names.sav");
         if (datasnames != null)
         {
             if (datasnames.name != null)
             {
-                text4.text = datasnames.name;
+                textLoad1.text = datasnames.name;
             }
             if (datasnames.name2 != null)
             {
-                text5.text = datasnames.name2;
+                textLoad2.text = datasnames.name2;
             }
             if (datasnames.name3 != null)
             {
-                text6.text = datasnames.name3;
+                textLoad3.text = datasnames.name3;
             }
         }
     }
 
     public void butSaves()
     {
-        canvas3.SetActive(false);
-        canvas4.SetActive(true);
+        saveCanvas.SetActive(false);
+        enterName1Canvas.SetActive(true);
     }
 
     public void butSaves2()
     {
-        canvas3.SetActive(false);
-        canvas6.SetActive(true);
+        saveCanvas.SetActive(false);
+        enterName2Canvas.SetActive(true);
     }
 
     public void butSaves3()
     {
-        canvas3.SetActive(false);
-        canvas7.SetActive(true);
+        saveCanvas.SetActive(false);
+        enterName3Canvas.SetActive(true);
     }
 
 
     public void validate()
     {
-        showGUI3 = false;
-        canvas4.SetActive(false);
-        canvas6.SetActive(false);
-        canvas7.SetActive(false);
+        showSaveMenu = false;
+        enterName1Canvas.SetActive(false);
+        enterName2Canvas.SetActive(false);
+        enterName3Canvas.SetActive(false);
     }
 
     public void Quit()
@@ -163,8 +231,23 @@ public class MenusJeu : MonoBehaviour
         }
 
   
-    public bool getShowGUI2()
+    public bool getShowInventory()
     {
-        return this.showGUI2;
+        return this.showInventory;
+    }
+
+    public GameObject getInventoryCanvas()
+    {
+        return this.inventoryCanvas;
+    }
+
+    private void OnEnable()
+    {
+        inputs.Enable();
+    }
+
+    private void OnDisable()
+    {
+        inputs.Disable();
     }
 }

@@ -21,6 +21,8 @@ TagManager:
   - GoldAmount
   - Projectile
   - Collision
+  - UI
+  - GameManager
   layers:
   - Default
   - TransparentFX

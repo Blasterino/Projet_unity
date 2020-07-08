@@ -4,17 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using UnityEngine.InputSystem;
 
 public class MeleeWeapon : Weapon {
 
     public int range;
     public float hitRate;
 
-
-	public void Hit()
+	public void Hit(Vector2 mousePosition)
     {
-        
-        Vector3 originDirection = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f));//10.0f car si z = 0f, la fonction retourne la position de la caméra
+
+        Vector3 originDirection = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, 10f));//10.0f car si z = 0f, la fonction retourne la position de la caméra
         Vector3 projectileDirection;
 
         projectileDirection.x = originDirection.x - player.GetComponent<Transform>().position.x;

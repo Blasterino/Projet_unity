@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.InteropServices.ComTypes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -26,20 +28,29 @@ public class Player : Character {
 
     // attributs concernant le combat
     float switchCooldown = 0.0f;
-    public bool typeArmeEquipee = false; // true -> arme de cac, false -> arme a distance
+
+    // true -> arme de cac, false -> arme a distance
+    public bool typeArmeEquipee = false; 
+
     public GameObject slashPrefab;
     public bool canOpenMenus;
 
     //attributs concernant l'inventaire
     public GameObject armeDistanceEquipee;
     public GameObject armeCorpsACorpsEquipee;
-    public List<GameObject> objetsProximite;//objets que le joueur peut ramasser
 
     public GameObject armureTeteEquipee;
     public GameObject armureTorseEquipee;
     public GameObject armureJambesEquipee;
 
-    public InputField iu;
+    private GameObject UIEquip;
+    private Image UIPanelCAC;
+    private Image UIPanelDist;
+
+    //objets que le joueur peut ramasser
+    public List<GameObject> objetsProximite;
+
+    public InputField inputField;
 
     //Game over
     public GameObject gameOverText;
@@ -55,9 +66,26 @@ public class Player : Character {
     public bool canMove;
     public bool canAttack;
 
+    //classe inputs
+    Inputs inputs;
+    Vector2 movementInput;
+    float actionKeyPressed;
+    float switchKeyPressed;
+    float fireKeyPressed;
+    Vector2 mousePosition;
+
 
     void Awake()
     {
+
+        //création du inputaction
+        inputs = new Inputs();
+        inputs.PlayerControls.Move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
+        inputs.PlayerControls.ActionKey.performed += ctx => actionKeyPressed = ctx.ReadValue<float>();
+        inputs.PlayerControls.SwitchWeapon.performed += ctx => switchKeyPressed = ctx.ReadValue<float>();
+        inputs.PlayerControls.FireKey.performed += ctx => fireKeyPressed = ctx.ReadValue<float>();
+        inputs.PlayerControls.MousePosition.performed += ctx => mousePosition = ctx.ReadValue<Vector2>();
+
         DatasNames datasnames = (DatasNames)DataManager.LoadNames("names.sav");
         if (datasnames != null)
         {
@@ -126,9 +154,13 @@ public class Player : Character {
         armeCorpsACorpsEquipee.GetComponent<MeleeWeapon>().equip(this.gameObject);
         lifeBar = GameObject.FindGameObjectWithTag("PlayerLifeBar").GetComponent<LifeBar>();
         lifeBar.SetProgress(currentHealth / maxHealth);
+
+        UIEquip = GameObject.FindGameObjectWithTag("ArmeUI");
+        UIPanelCAC = UIEquip.GetComponent<RectTransform>().GetChild(1).GetComponent<RectTransform>().GetChild(0).gameObject.GetComponent<Image>();
+        UIPanelDist = UIEquip.GetComponent<RectTransform>().GetChild(1).GetComponent<RectTransform>().GetChild(1).gameObject.GetComponent<Image>();
     }
 
-    protected override void Update() {
+    private void FixedUpdate() {
         if (Time.timeScale == 1)
         {
             GetInput();
@@ -138,11 +170,7 @@ public class Player : Character {
         {
             SceneManager.LoadScene("MainMenu");
         }
-        base.Update();
-    }
 
-    private void FixedUpdate()
-    {
         if (!isAlive || !canMove)
         {
             return;
@@ -150,32 +178,34 @@ public class Player : Character {
         Move();
     }
 
+
     private void GetInput()
     {
         //inputs directionnels
         direction = Vector2.zero;
-        if (Input.GetKey(KeyCode.Z))
+        if (movementInput[1] >= 0.2)
         {
             direction += Vector2.up;
         }
 
-        if (Input.GetKey(KeyCode.Q))
+        if (movementInput[0] <= -0.2)
         {
             direction += Vector2.left;
         }
 
-        if (Input.GetKey(KeyCode.S))
+        if (movementInput[1] <= -0.2)
         {
             direction += Vector2.down;
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (movementInput[0] >= 0.2)
         {
             direction += Vector2.right;
         }
 
+
         //input d'attaque
-        if (Input.GetMouseButton(0) && !this.GetComponent<MenusJeu>().getShowGUI2())
+        if (fireKeyPressed==1 && !this.GetComponent<MenusJeu>().getShowInventory())
         {
             if(Time.time > nextFire && isAlive && canAttack)
             {
@@ -183,11 +213,11 @@ public class Player : Character {
                 {
                     animator.SetTrigger("Attacking");
                     nextFire = Time.time + armeCorpsACorpsEquipee.GetComponent<MeleeWeapon>().hitRate - 0.01f * agility;
-                    armeCorpsACorpsEquipee.gameObject.GetComponent<MeleeWeapon>().Hit();
+                    armeCorpsACorpsEquipee.gameObject.GetComponent<MeleeWeapon>().Hit(mousePosition);
                 } else
                 {
                     nextFire = Time.time + armeDistanceEquipee.GetComponent<RangedWeapon>().fireRate - 0.01f * agility; //firerate -> cooldown de tir
-                    armeDistanceEquipee.gameObject.GetComponent<RangedWeapon>().Fire();
+                    armeDistanceEquipee.gameObject.GetComponent<RangedWeapon>().Fire(mousePosition);
                 }
                     
             }
@@ -195,23 +225,22 @@ public class Player : Character {
         }
 
         //input de switch d'arme
-        if (Input.GetMouseButtonDown(1) && !this.GetComponent<MenusJeu>().getShowGUI2())
+        if (switchKeyPressed == 1 && !this.GetComponent<MenusJeu>().getShowInventory())
         {
             //switch le type d'arme : cooldown de 1s
             if (Time.time > switchCooldown)
             {
-                GameObject UIEquip = GameObject.FindGameObjectWithTag("ArmeUI");
 
                 //On met en "évidence" le type d'arme équipée
                 if (typeArmeEquipee)
                 {
-                    UIEquip.GetComponent<RectTransform>().GetChild(1).GetComponent<RectTransform>().GetChild(0).gameObject.GetComponent<Image>().enabled = false;
-                    UIEquip.GetComponent<RectTransform>().GetChild(1).GetComponent<RectTransform>().GetChild(1).gameObject.GetComponent<Image>().enabled = true;
+                    UIPanelCAC.enabled = false;
+                    UIPanelDist.enabled = true;
                 }
                 else
                 {
-                    UIEquip.GetComponent<RectTransform>().GetChild(1).GetComponent<RectTransform>().GetChild(0).gameObject.GetComponent<Image>().enabled = true;
-                    UIEquip.GetComponent<RectTransform>().GetChild(1).GetComponent<RectTransform>().GetChild(1).gameObject.GetComponent<Image>().enabled = false;
+                    UIPanelCAC.enabled = true;
+                    UIPanelDist.enabled = false;
                 }
                 switchCooldown = Time.time + 1f;
                 typeArmeEquipee = !typeArmeEquipee;
@@ -219,7 +248,7 @@ public class Player : Character {
         }
 
         //input d'interaction
-        if (Input.GetKeyDown(KeyCode.E))
+        if (actionKeyPressed == 1)
         {
             if(objetsProximite.Count != 0)
             {
@@ -253,8 +282,10 @@ public class Player : Character {
         base.Die();
         canMove = false;
         canAttack = false;
+
         //arrête la musique
         GameObject.Find("GameAudioManager").GetComponent<AudioSource>().Stop();
+
         //joue celle du gameover
         audioSource.PlayOneShot(gameOverClip);
         StartCoroutine("ShowGameOver");
@@ -377,5 +408,15 @@ public class Player : Character {
             currentHealth = datas.currentHealth;
             timerStart = datas.timerStart;
         }
+    }
+
+    private void OnEnable()
+    {
+        inputs.Enable();
+    }
+
+    private void OnDisable()
+    {
+        inputs.Disable();
     }
 }
