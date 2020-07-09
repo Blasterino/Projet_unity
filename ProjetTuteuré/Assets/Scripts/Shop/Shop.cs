@@ -26,35 +26,38 @@ public class Shop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //je comprend pas l'instance
         instance = this;
+        //on commence tout désactivé
         shopMenu.SetActive(false);
         buyMenu.SetActive(false);
         sellMenu.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     public void OpenShop()
     {
+        //on active l'UI et on active le menu achat
         shopMenu.SetActive(true);
         OpenBuyMenu();
 
+        //on set l'instance je sais pas pourquoi
         GameManager.instance.shopActive = true;
 
+        //on affiche les golds du joueur
         goldText.text = Player.instance.gold.ToString() + "g";
 
+        //on stoppe le player ??? 
         Player.instance.Stop();
         Player.instance.canAttack = false;
     }
 
     public void CloseShop()
     {
+        //on ferme les sous menus
         shopMenu.SetActive(false);
         buyMenu.SetActive(false);
         sellMenu.SetActive(false);
+        //on désactive le shop ? et on réactive le joueur
         GameManager.instance.shopActive = false;
         Player.instance.canMove = true;
         Player.instance.canAttack = true;
@@ -70,85 +73,116 @@ public class Shop : MonoBehaviour
 
     public void ShowBuyItems()
     {
+        //pour chaque item en vente
         for (int i = 0; i < itemsForSale.Count; i++)
         {
+            //on note le gameobject
             GameObject item = (GameObject)itemsForSale[i][0];
             int amount = (int)itemsForSale[i][1];
 
+            //on active l'image et la quantité de l'objet et on note la référence de l'objet
             buyItemButtons[i].buttonImage.gameObject.SetActive(true);
             buyItemButtons[i].buttonImage.sprite = item.GetComponent<SpriteRenderer>().sprite;
             buyItemButtons[i].amountText.text = amount.ToString();
             buyItemButtons[i].setItemReferenced(item);
         }
 
+        //pour les cases non achetables
         for (int i = itemsForSale.Count; i < buyItemButtons.Length; i++)
         {
+            //on désactive le bouton, enlève les images
             buyItemButtons[i].buttonImage.gameObject.SetActive(false);
             buyItemButtons[i].amountText.text = "";
             buyItemButtons[i].gameObject.GetComponent<Button>().interactable = false;
         }
     }
 
+    //quand on clique sur le bouton on sélectionne l'item
     public void SelectBuyItem(GameObject buyItemSelected)
     {
+        //on set le selected
         selectedItem = buyItemSelected;
+        //on affiche la description et le prix
         buyItemName.text = selectedItem.GetComponent<Items>().itemName;
         buyItemDescription.text = selectedItem.GetComponent<Items>().description;
         buyItemPrice.text = "Value: " + selectedItem.GetComponent<Items>().price.ToString() +"g";
     }
 
+    //aucune idée
     public void BuyItemCallBack()
     {
         StartCoroutine(BuyItem());
     }
 
+    //cette histoire de coroutine c'est chelouxx
     public IEnumerator BuyItem()
     {
+        //si on a sélectionné un item
         if(selectedItem != null)
         {
+            //on teste si le joueur a assez de gold
             if(Player.instance.gold >= selectedItem.GetComponent<Items>().price)
             {
-                ConfirmPopUp.instance.OpenPopupConfirm("Are you sure you want to buy this item?");
+                if (!inventaire.isFull()) { 
 
-                //Tant qu'un choix n'a pas été fait sur la popup
-                while (ConfirmPopUp.instance.result == -1)
-                {
-                    for(int i = 0; i < itemsForSale.Count; i++)
+                    //on ouvre une instance de popup ? (y'avait pas plus simple ???)
+                    ConfirmPopUp.instance.OpenPopupConfirm("Are you sure you want to buy this item?");
+
+                    //Tant qu'un choix n'a pas été fait sur la popup
+                    while (ConfirmPopUp.instance.result == -1)
                     {
-                        buyItemButtons[i].gameObject.GetComponent<Button>().interactable = false;
-                    }
-                    yield return null;
-
-                    if(ConfirmPopUp.instance.result == 1)
-                    {
-                        Player.instance.gold -= selectedItem.GetComponent<Items>().price;
-                        inventaire.addItem(selectedItem);
-
-                        for (int i = 0; i < itemsForSale.Count; i++)
+                        //on désactive les autres boutons
+                        for(int i = 0; i < itemsForSale.Count; i++)
                         {
-                            if (selectedItem == (GameObject)itemsForSale[i][0])
-                            {
-                                int amount = (int)itemsForSale[i][1];
-                                amount--;
-                                itemsForSale[i][1] = amount;
-
-                                if ((int)itemsForSale[i][1] <= 0)
-                                {
-                                    itemsForSale.Remove(itemsForSale[i]);
-                                }
-
-                                break;
-                            }
+                            buyItemButtons[i].gameObject.GetComponent<Button>().interactable = false;
                         }
-                        ShowBuyItems();
-                    } else if(ConfirmPopUp.instance.result == 0)
-                    {
-                        break;
+                        yield return null;
+
+                        //si on clique sur oui
+                        if(ConfirmPopUp.instance.result == 1)
+                        {
+                            //on retire les gold du joueur du prix de l'item
+                            Player.instance.gold -= selectedItem.GetComponent<Items>().price;
+                            //on l'ajoute à l'inv du joueur
+                            inventaire.addItem(Instantiate(selectedItem));
+
+                            //pour chaque item en vente
+                            for (int i = 0; i < itemsForSale.Count; i++)
+                            {
+                                //si l'item sélectionné est l'objet en vente
+                                if (selectedItem == (GameObject)itemsForSale[i][0])
+                                {
+                                    //on baisse sa quantité
+                                    int amount = (int)itemsForSale[i][1];
+                                    amount--;
+                                    itemsForSale[i][1] = amount;
+
+                                    //si il passe à la quantité 0 on l'enlève
+                                    if ((int)itemsForSale[i][1] <= 0)
+                                    {
+                                        itemsForSale.Remove(itemsForSale[i]);
+                                    }
+
+                                    break;
+                                }
+                            }
+                            //on rafraichit l'affichage
+                            ShowBuyItems();
+                        } 
+                        //si on clique sur non on stoppe
+                        else if(ConfirmPopUp.instance.result == 0)
+                        {
+                            break;
+                        }
                     }
-                }
-                for (int i = 0; i < itemsForSale.Count; i++)
+                    //on rend les boutons cliquables à nouveau
+                    for (int i = 0; i < itemsForSale.Count; i++)
+                    {
+                        buyItemButtons[i].gameObject.GetComponent<Button>().interactable = true;
+                    }
+                } else
                 {
-                    buyItemButtons[i].gameObject.GetComponent<Button>().interactable = true;
+                    ConfirmPopUp.instance.OpenPopupSimple("Your inventory is full !");
                 }
             }
             else
@@ -160,6 +194,7 @@ public class Shop : MonoBehaviour
         goldText.text = Player.instance.gold.ToString() + "g";
     }
 
+    //on change les menus
     public void OpenSellMenu()
     {
         sellMenu.SetActive(true);
@@ -167,6 +202,7 @@ public class Shop : MonoBehaviour
 
         ShowSellItem();
     }
+
 
     public void ShowSellItem()
     {

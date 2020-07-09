@@ -69,7 +69,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1017586742487124}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1017586742487124}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreReversedGraphics: 1
@@ -153,17 +153,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1148531338954288}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 3829e1dc85234784182eab134ff36727, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
@@ -173,6 +172,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &1229583717184908
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,17 +263,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1837744782493170}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 70b0a5b481e952243b765e1589383e0b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -283,6 +282,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &1953043595214966
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,20 +393,41 @@ MonoBehaviour:
   rigidBody: {fileID: 50462358712263706}
   sprite: {fileID: 212641445425918770}
   hitValuePrefab: {fileID: 146428, guid: 10edc0ca7bc3b3a4b822865bb1aa50a0, type: 3}
+  baseHealth: 100
   maxHealth: 100
   currentHealth: 0
   isAlive: 0
   lifeBar: {fileID: 114373195807365602}
+  basestrength: 5
+  baseendurance: 5
+  baseagility: 5
   strength: 5
   endurance: 5
   agility: 25
+  activeSpeed: 10
   typeArmeEquipee: 0
+  slashPrefab: {fileID: 5648402956995452155, guid: ffdec8e48e1a0524ea71d70d35e3c43c,
+    type: 3}
+  canOpenMenus: 0
   armeDistanceEquipee: {fileID: 1625000258791412, guid: 216ebf03540b03041afa3ad719973e06,
     type: 3}
   armeCorpsACorpsEquipee: {fileID: 1016660963751004, guid: 80b52f5aba0de6f4a9bcc9abe943e8f7,
     type: 3}
-  iu: {fileID: 0}
+  armureTeteEquipee: {fileID: 6023164062218156686, guid: af68763dc7da2134bba14832fe0558aa,
+    type: 3}
+  armureTorseEquipee: {fileID: 8520950257077829993, guid: 65c874b5936c0834f9e5191440557c20,
+    type: 3}
+  armureJambesEquipee: {fileID: 1310476483969403534, guid: 04dbe0fbbdf5db44ab56c0b08eef3e80,
+    type: 3}
+  objetsProximite: []
+  inputField: {fileID: 0}
   gameOverText: {fileID: 0}
+  audioSource: {fileID: 0}
+  gameOverClip: {fileID: 0}
+  timerStart: 0
+  gold: 0
+  canMove: 0
+  canAttack: 0
 --- !u!212 &212641445425918770
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -421,6 +442,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -432,6 +454,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -442,7 +465,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1036050413
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6e536dcdb2e41444f868f595f623cb4f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -547,21 +570,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2de23005537f31c41a8ac953260ac505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showGUI: 0
-  showGUI2: 0
-  showGUI3: 0
-  canvas1: {fileID: 0}
-  canvas2: {fileID: 0}
-  canvas3: {fileID: 0}
-  canvas4: {fileID: 0}
-  canvas5: {fileID: 0}
-  canvas6: {fileID: 0}
-  canvas7: {fileID: 0}
-  uiarmes: {fileID: 0}
-  lifebar: {fileID: 1017586742487124}
-  text1: {fileID: 0}
-  text2: {fileID: 0}
-  text3: {fileID: 0}
-  text4: {fileID: 0}
-  text5: {fileID: 0}
-  text6: {fileID: 0}

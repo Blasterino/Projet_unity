@@ -167,6 +167,14 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Open Shop",
+                    "type": "PassThrough",
+                    "id": "80d00cda-d862-486e-a529-da979c9da999",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -189,6 +197,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Open Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "99e24d09-e9e4-4a36-a942-fbe3ec177111",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Open Shop",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

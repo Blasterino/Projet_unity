@@ -10,6 +10,16 @@ public class ShopKeeper : MonoBehaviour
     public GameObject[] itemsInStock = new GameObject[24];
     public List<object[]> itemsForSale;
 
+    Inputs inputs;
+    float shopKeyPressed;
+
+    private void Awake()
+    {
+        //inputs
+        inputs = new Inputs();
+        inputs.MenuControls.OpenShop.performed += ctx => shopKeyPressed = ctx.ReadValue<float>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +30,7 @@ public class ShopKeeper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(canOpen && Input.GetKeyDown(KeyCode.B) && !Shop.instance.shopMenu.activeInHierarchy)
+        if(canOpen && shopKeyPressed==1 && !Shop.instance.shopMenu.activeInHierarchy)
         {
             Shop.instance.itemsForSale = itemsForSale;
             Shop.instance.OpenShop();
@@ -56,5 +66,15 @@ public class ShopKeeper : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void OnEnable()
+    {
+        inputs.Enable();
+    }
+
+    private void OnDisable()
+    {
+        inputs.Disable();
     }
 }

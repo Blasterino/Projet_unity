@@ -135,6 +135,7 @@ public class Player : Character {
                 }
             }
         }
+        base.Awake();
     }
 
 

@@ -79,7 +79,11 @@ public class ButtonInventaire : MonoBehaviour, IPointerClickHandler
             var objet = inv.listeItems[(int)char.GetNumericValue(gameObject.name[9])];
             if(objet != null)
             {
-                if(objet != player.GetComponent<Player>().armeCorpsACorpsEquipee && objet != player.GetComponent<Player>().armeDistanceEquipee)
+                if(objet != player.GetComponent<Player>().armeCorpsACorpsEquipee &&
+                    objet != player.GetComponent<Player>().armeDistanceEquipee &&
+                    objet != player.GetComponent<Player>().armureJambesEquipee &&
+                    objet != player.GetComponent<Player>().armureTeteEquipee &&
+                    objet != player.GetComponent<Player>().armureTorseEquipee)
                 {
                     objet.GetComponent<Item>().drop();
                 } 

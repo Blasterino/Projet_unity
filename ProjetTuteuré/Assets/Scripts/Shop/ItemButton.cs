@@ -6,7 +6,7 @@ public class ItemButton : MonoBehaviour
 {
     public Image buttonImage;
     public Text amountText;
-    public int buttonValue;
+    //public int buttonValue;
     public GameObject itemReferenced;
 
     public void Press()

@@ -90,3 +90,6 @@ TagManager:
   - name: Salle
     uniqueID: 1437357399
     locked: 0
+  - name: UI Foreground
+    uniqueID: 3822558677
+    locked: 0

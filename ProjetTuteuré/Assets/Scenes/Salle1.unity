@@ -293,10 +293,10 @@ RectTransform:
   m_Father: {fileID: 1272184259}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 40, y: -140}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &24722223
 MonoBehaviour:
@@ -336,7 +336,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 24722224}
   m_OnClick:
     m_PersistentCalls:
@@ -403,7 +403,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 1995028074}
   amountText: {fileID: 1227962659}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &27618146
 GameObject:
@@ -515,10 +514,10 @@ RectTransform:
   m_Father: {fileID: 1272184259}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 540, y: -40}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &43686820
 MonoBehaviour:
@@ -558,7 +557,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 43686821}
   m_OnClick:
     m_PersistentCalls:
@@ -625,7 +624,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 146597261}
   amountText: {fileID: 1958655324}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &49105902
 GameObject:
@@ -893,10 +891,10 @@ RectTransform:
   m_Father: {fileID: 1272184259}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 240, y: -240}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &64621972
 MonoBehaviour:
@@ -936,7 +934,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 64621973}
   m_OnClick:
     m_PersistentCalls:
@@ -1003,7 +1001,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 459071493}
   amountText: {fileID: 1363047296}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &92623838
 GameObject:
@@ -1513,7 +1510,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20, y: -47.399994}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &146597259
@@ -1966,10 +1963,10 @@ RectTransform:
   m_Father: {fileID: 1272184259}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 640, y: -40}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &199570337
 MonoBehaviour:
@@ -2009,7 +2006,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 199570338}
   m_OnClick:
     m_PersistentCalls:
@@ -2076,7 +2073,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 92623840}
   amountText: {fileID: 941576518}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &219873148
 GameObject:
@@ -2114,10 +2110,10 @@ RectTransform:
   m_Father: {fileID: 1188442716}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 340, y: -40}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &219873150
 MonoBehaviour:
@@ -2224,7 +2220,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 1999633418}
   amountText: {fileID: 726642760}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &243275323
 GameObject:
@@ -2336,10 +2331,10 @@ RectTransform:
   m_Father: {fileID: 1188442716}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 440, y: -140}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &246975043
 MonoBehaviour:
@@ -2446,7 +2441,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 774931869}
   amountText: {fileID: 199338903}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &248868887
 GameObject:
@@ -2842,10 +2836,10 @@ RectTransform:
   m_Father: {fileID: 1272184259}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 440, y: -240}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &274814517
 MonoBehaviour:
@@ -2885,7 +2879,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 274814518}
   m_OnClick:
     m_PersistentCalls:
@@ -2952,7 +2946,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 1887121207}
   amountText: {fileID: 447928139}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &294803533
 GameObject:
@@ -3085,10 +3078,10 @@ RectTransform:
   m_Father: {fileID: 1188442716}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 240, y: -40}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &322776469
 MonoBehaviour:
@@ -3195,7 +3188,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 544261587}
   amountText: {fileID: 747804436}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &330734958
 GameObject:
@@ -4058,10 +4050,10 @@ RectTransform:
   m_Father: {fileID: 1272184259}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 40, y: -240}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &402455955
 MonoBehaviour:
@@ -4101,7 +4093,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 402455956}
   m_OnClick:
     m_PersistentCalls:
@@ -4168,7 +4160,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 122626641}
   amountText: {fileID: 1457244959}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &410561139
 GameObject:
@@ -4468,10 +4459,10 @@ RectTransform:
   m_Father: {fileID: 1188442716}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 440, y: -40}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &436906247
 MonoBehaviour:
@@ -4578,7 +4569,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 1940072826}
   amountText: {fileID: 1640585626}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &443418766
 GameObject:
@@ -4784,10 +4774,10 @@ RectTransform:
   m_Father: {fileID: 1272184259}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 340, y: -240}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &456994580
 MonoBehaviour:
@@ -4827,7 +4817,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 456994581}
   m_OnClick:
     m_PersistentCalls:
@@ -4894,7 +4884,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 1847695244}
   amountText: {fileID: 1190097824}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &459071491
 GameObject:
@@ -5006,10 +4995,10 @@ RectTransform:
   m_Father: {fileID: 1188442716}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 40, y: -140}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &460018810
 MonoBehaviour:
@@ -5116,7 +5105,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 532322374}
   amountText: {fileID: 1977035280}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &480307216
 GameObject:
@@ -5873,10 +5861,10 @@ RectTransform:
   m_Father: {fileID: 1188442716}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 740, y: -140}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &540935606
 MonoBehaviour:
@@ -5983,7 +5971,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 1328196357}
   amountText: {fileID: 783843614}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &544261585
 GameObject:
@@ -6506,7 +6493,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -14.499939, y: -21.299988}
+  m_AnchoredPosition: {x: -14.5, y: -21.300049}
   m_SizeDelta: {x: -187.59996, y: -130.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &632006485
@@ -6740,10 +6727,10 @@ RectTransform:
   m_Father: {fileID: 1188442716}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 640, y: -40}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &659951215
 MonoBehaviour:
@@ -6850,7 +6837,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 1938236203}
   amountText: {fileID: 1479653573}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &664346731
 GameObject:
@@ -7056,10 +7042,10 @@ RectTransform:
   m_Father: {fileID: 1272184259}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 540, y: -140}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &735704400
 MonoBehaviour:
@@ -7099,7 +7085,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 735704401}
   m_OnClick:
     m_PersistentCalls:
@@ -7166,7 +7152,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 1654430651}
   amountText: {fileID: 1000504347}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &739934245
 GameObject:
@@ -7204,10 +7189,10 @@ RectTransform:
   m_Father: {fileID: 1272184259}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 140, y: -240}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &739934247
 MonoBehaviour:
@@ -7247,7 +7232,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 739934248}
   m_OnClick:
     m_PersistentCalls:
@@ -7314,7 +7299,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 1431760213}
   amountText: {fileID: 1310521164}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &747804433
 GameObject:
@@ -7726,10 +7710,10 @@ RectTransform:
   m_Father: {fileID: 1272184259}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 440, y: -140}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &810349781
 MonoBehaviour:
@@ -7769,7 +7753,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 810349782}
   m_OnClick:
     m_PersistentCalls:
@@ -7836,7 +7820,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 248868889}
   amountText: {fileID: 1899401544}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &839059176
 GameObject:
@@ -7968,10 +7951,10 @@ RectTransform:
   m_Father: {fileID: 1188442716}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 240, y: -140}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &839650740
 MonoBehaviour:
@@ -8078,7 +8061,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 443418768}
   amountText: {fileID: 504165517}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!224 &852815926 stripped
 RectTransform:
@@ -8384,10 +8366,10 @@ RectTransform:
   m_Father: {fileID: 1272184259}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 740, y: -240}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &876871069
 MonoBehaviour:
@@ -8427,7 +8409,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 876871070}
   m_OnClick:
     m_PersistentCalls:
@@ -8494,7 +8476,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 250687146}
   amountText: {fileID: 1880596328}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &882363233 stripped
 GameObject:
@@ -9364,7 +9345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &921913959
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9374,7 +9355,7 @@ RectTransform:
   m_GameObject: {fileID: 921913958}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.65, y: 0.65, z: 1}
   m_Children:
   - {fileID: 144157004}
   m_Father: {fileID: 2024327694}
@@ -9382,7 +9363,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 37.9, y: -42.2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &933932410
@@ -9421,10 +9402,10 @@ RectTransform:
   m_Father: {fileID: 1272184259}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 740, y: -40}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &933932412
 MonoBehaviour:
@@ -9464,7 +9445,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 933932413}
   m_OnClick:
     m_PersistentCalls:
@@ -9531,7 +9512,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 27618148}
   amountText: {fileID: 131224132}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &941576515
 GameObject:
@@ -9663,10 +9643,10 @@ RectTransform:
   m_Father: {fileID: 1188442716}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 540, y: -240}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &942217067
 MonoBehaviour:
@@ -9773,7 +9753,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 480307218}
   amountText: {fileID: 1661114772}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &944405422
 GameObject:
@@ -9811,10 +9790,10 @@ RectTransform:
   m_Father: {fileID: 1188442716}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 140, y: -140}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &944405424
 MonoBehaviour:
@@ -9921,7 +9900,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 1354686888}
   amountText: {fileID: 565486524}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &945898287
 GameObject:
@@ -10679,10 +10657,10 @@ RectTransform:
   m_Father: {fileID: 1188442716}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 640, y: -240}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1038299677
 MonoBehaviour:
@@ -10789,7 +10767,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 590061543}
   amountText: {fileID: 522154774}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &1041505245
 GameObject:
@@ -11163,10 +11140,10 @@ RectTransform:
   m_Father: {fileID: 1272184259}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 240, y: -40}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1095722037
 MonoBehaviour:
@@ -11273,7 +11250,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 2041885469}
   amountText: {fileID: 1563577403}
-  buttonValue: 0
   itemReferenced: {fileID: 4260125562565030425, guid: 1d0caa0ef6cc55d46a7230297dacb6e6,
     type: 3}
 --- !u!1 &1096934433
@@ -11312,10 +11288,10 @@ RectTransform:
   m_Father: {fileID: 1272184259}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 440, y: -40}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1096934435
 MonoBehaviour:
@@ -11422,7 +11398,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 1467161675}
   amountText: {fileID: 2097548612}
-  buttonValue: 0
   itemReferenced: {fileID: 5317554518091390932, guid: 48376f840165820438c6abe62cbdc3ca,
     type: 3}
 --- !u!1 &1101952829
@@ -11539,10 +11514,10 @@ RectTransform:
   m_Father: {fileID: 1272184259}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 740, y: -140}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1105738489
 MonoBehaviour:
@@ -11582,7 +11557,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1105738490}
   m_OnClick:
     m_PersistentCalls:
@@ -11649,7 +11624,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 664346733}
   amountText: {fileID: 1922630256}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &1116610189
 GameObject:
@@ -11957,8 +11931,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 65, y: 0}
-  m_SizeDelta: {x: 99.3, y: 30}
+  m_AnchoredPosition: {x: 79.4, y: 0}
+  m_SizeDelta: {x: 123.6, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1157616039
 MonoBehaviour:
@@ -12087,10 +12061,10 @@ RectTransform:
   m_Father: {fileID: 1272184259}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 640, y: -240}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1160220019
 MonoBehaviour:
@@ -12130,7 +12104,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1160220020}
   m_OnClick:
     m_PersistentCalls:
@@ -12197,7 +12171,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 1568551727}
   amountText: {fileID: 330734961}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &1161845920
 GameObject:
@@ -12423,10 +12396,10 @@ RectTransform:
   m_Father: {fileID: 1272184259}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 640, y: -140}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1174696133
 MonoBehaviour:
@@ -12466,7 +12439,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1174696134}
   m_OnClick:
     m_PersistentCalls:
@@ -12533,7 +12506,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 259347876}
   amountText: {fileID: 839059179}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &1185864375
 GameObject:
@@ -12646,7 +12618,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -287.6, y: 149.725}
+  m_AnchoredPosition: {x: -273.8, y: 149.725}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1188442717
@@ -12803,10 +12775,10 @@ RectTransform:
   m_Father: {fileID: 1272184259}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 340, y: -140}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1191387495
 MonoBehaviour:
@@ -12846,7 +12818,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1191387496}
   m_OnClick:
     m_PersistentCalls:
@@ -12913,7 +12885,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 1727148206}
   amountText: {fileID: 1801212930}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &1195351724
 GameObject:
@@ -13249,10 +13220,10 @@ RectTransform:
   m_Father: {fileID: 1272184259}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 540, y: -240}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1230914837
 MonoBehaviour:
@@ -13292,7 +13263,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1230914838}
   m_OnClick:
     m_PersistentCalls:
@@ -13359,7 +13330,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 945898289}
   amountText: {fileID: 1250931299}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &1247276120
 GameObject:
@@ -13720,12 +13690,6 @@ PrefabInstance:
       objectReference: {fileID: 1865953149}
     - target: {fileID: 114870138053317676, guid: 4b92556c45884104ab9b97cf50b65b4a,
         type: 3}
-      propertyPath: armeDistanceEquipee
-      value: 
-      objectReference: {fileID: 1625000258791412, guid: 216ebf03540b03041afa3ad719973e06,
-        type: 3}
-    - target: {fileID: 114870138053317676, guid: 4b92556c45884104ab9b97cf50b65b4a,
-        type: 3}
       propertyPath: gameOverClip
       value: 
       objectReference: {fileID: 8300000, guid: 9c30617404a5d684d8e6925163dfba67, type: 3}
@@ -13736,47 +13700,13 @@ PrefabInstance:
       objectReference: {fileID: 1705855990}
     - target: {fileID: 114870138053317676, guid: 4b92556c45884104ab9b97cf50b65b4a,
         type: 3}
-      propertyPath: armureTeteEquipee
-      value: 
-      objectReference: {fileID: 6023164062218156686, guid: af68763dc7da2134bba14832fe0558aa,
-        type: 3}
-    - target: {fileID: 114870138053317676, guid: 4b92556c45884104ab9b97cf50b65b4a,
-        type: 3}
-      propertyPath: armureTorseEquipee
-      value: 
-      objectReference: {fileID: 8520950257077829993, guid: 65c874b5936c0834f9e5191440557c20,
-        type: 3}
-    - target: {fileID: 114870138053317676, guid: 4b92556c45884104ab9b97cf50b65b4a,
-        type: 3}
-      propertyPath: armureJambesEquipee
-      value: 
-      objectReference: {fileID: 1310476483969403534, guid: 04dbe0fbbdf5db44ab56c0b08eef3e80,
-        type: 3}
-    - target: {fileID: 114870138053317676, guid: 4b92556c45884104ab9b97cf50b65b4a,
-        type: 3}
       propertyPath: gold
       value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 114870138053317676, guid: 4b92556c45884104ab9b97cf50b65b4a,
         type: 3}
-      propertyPath: slashPrefab
-      value: 
-      objectReference: {fileID: 5648402956995452155, guid: ffdec8e48e1a0524ea71d70d35e3c43c,
-        type: 3}
-    - target: {fileID: 114870138053317676, guid: 4b92556c45884104ab9b97cf50b65b4a,
-        type: 3}
       propertyPath: canOpenMenus
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114870138053317676, guid: 4b92556c45884104ab9b97cf50b65b4a,
-        type: 3}
-      propertyPath: maxHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114870138053317676, guid: 4b92556c45884104ab9b97cf50b65b4a,
-        type: 3}
-      propertyPath: baseHealth
-      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 114948542306524554, guid: 4b92556c45884104ab9b97cf50b65b4a,
         type: 3}
@@ -14104,7 +14034,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1324656213
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14112,7 +14042,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1324656212}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
@@ -14385,10 +14315,10 @@ RectTransform:
   m_Father: {fileID: 1272184259}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 240, y: -140}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1348410597
 MonoBehaviour:
@@ -14428,7 +14358,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1348410598}
   m_OnClick:
     m_PersistentCalls:
@@ -14495,7 +14425,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 647851600}
   amountText: {fileID: 2080481750}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &1354686886
 GameObject:
@@ -14770,10 +14699,10 @@ RectTransform:
   m_Father: {fileID: 1188442716}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 740, y: -40}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1393789188
 MonoBehaviour:
@@ -14880,7 +14809,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 112058494}
   amountText: {fileID: 336153400}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &1431760211
 GameObject:
@@ -15304,10 +15232,10 @@ RectTransform:
   m_Father: {fileID: 1188442716}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 340, y: -140}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1462134677
 MonoBehaviour:
@@ -15414,7 +15342,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 1329124010}
   amountText: {fileID: 342104282}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &1467161673
 GameObject:
@@ -15505,7 +15432,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1467377964
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15656,10 +15583,10 @@ RectTransform:
   m_Father: {fileID: 1188442716}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 140, y: -40}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1501596724
 MonoBehaviour:
@@ -15766,7 +15693,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 1060260226}
   amountText: {fileID: 369801972}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &1503296681
 GameObject:
@@ -15972,10 +15898,10 @@ RectTransform:
   m_Father: {fileID: 1272184259}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 40, y: -40}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1521180615
 MonoBehaviour:
@@ -16082,7 +16008,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 243275325}
   amountText: {fileID: 1636978383}
-  buttonValue: 0
   itemReferenced: {fileID: 1891920190206432, guid: 0c795c375252b6343936484b6ef46738,
     type: 3}
 --- !u!1 &1542544867
@@ -16427,10 +16352,10 @@ RectTransform:
   m_Father: {fileID: 1188442716}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 240, y: -240}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1571159450
 MonoBehaviour:
@@ -16537,7 +16462,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 1818202616}
   amountText: {fileID: 1045940803}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!224 &1580956447 stripped
 RectTransform:
@@ -16655,10 +16579,10 @@ RectTransform:
   m_Father: {fileID: 1188442716}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 440, y: -240}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1592179996
 MonoBehaviour:
@@ -16765,7 +16689,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 421696536}
   amountText: {fileID: 546423179}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1001 &1592215633
 PrefabInstance:
@@ -17649,10 +17572,10 @@ RectTransform:
   m_Father: {fileID: 1272184259}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 140, y: -140}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1685927999
 MonoBehaviour:
@@ -17692,7 +17615,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1685928000}
   m_OnClick:
     m_PersistentCalls:
@@ -17759,7 +17682,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 1056715984}
   amountText: {fileID: 1041505248}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &1693987833
 GameObject:
@@ -17797,10 +17719,10 @@ RectTransform:
   m_Father: {fileID: 1188442716}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 540, y: -40}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1693987835
 MonoBehaviour:
@@ -17907,7 +17829,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 166685657}
   amountText: {fileID: 1317251852}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &1705855989 stripped
 GameObject:
@@ -18030,7 +17951,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1705855989}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -18114,10 +18035,10 @@ RectTransform:
   m_Father: {fileID: 1272184259}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 340, y: -40}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1727010423
 MonoBehaviour:
@@ -18224,7 +18145,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 1600757233}
   amountText: {fileID: 424211249}
-  buttonValue: 0
   itemReferenced: {fileID: 7715084132256136833, guid: d1f43d0a81994c34f99311143c9b9625,
     type: 3}
 --- !u!1 &1727148204
@@ -18677,10 +18597,10 @@ RectTransform:
   m_Father: {fileID: 1188442716}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 40, y: -240}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1850652714
 MonoBehaviour:
@@ -18787,7 +18707,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 1581462078}
   amountText: {fileID: 1432697671}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1001 &1863995571
 PrefabInstance:
@@ -20178,10 +20097,10 @@ RectTransform:
   m_Father: {fileID: 1188442716}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 740, y: -240}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1956630006
 MonoBehaviour:
@@ -20288,7 +20207,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 2042421834}
   amountText: {fileID: 49105905}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &1958655321
 GameObject:
@@ -20475,8 +20393,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -186.14, y: 0}
-  m_SizeDelta: {x: -601.59, y: -32.4}
+  m_AnchoredPosition: {x: -136.09998, y: 0}
+  m_SizeDelta: {x: -591.4, y: -32.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1977035277
 GameObject:
@@ -21354,10 +21272,10 @@ RectTransform:
   m_Father: {fileID: 1188442716}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 640, y: -140}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2032421717
 MonoBehaviour:
@@ -21464,7 +21382,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 622816715}
   amountText: {fileID: 410561142}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &2041885467
 GameObject:
@@ -21933,10 +21850,10 @@ RectTransform:
   m_Father: {fileID: 1188442716}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 140, y: -240}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2085324031
 MonoBehaviour:
@@ -22043,7 +21960,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 1799836503}
   amountText: {fileID: 1162692828}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &2087360244
 GameObject:
@@ -22252,10 +22168,10 @@ RectTransform:
   m_Father: {fileID: 1188442716}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 40, y: -40}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2091712396
 MonoBehaviour:
@@ -22362,7 +22278,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 1210359080}
   amountText: {fileID: 2087360247}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &2097548609
 GameObject:
@@ -22494,10 +22409,10 @@ RectTransform:
   m_Father: {fileID: 1188442716}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 540, y: -140}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2103208545
 MonoBehaviour:
@@ -22604,7 +22519,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 1503296683}
   amountText: {fileID: 888125296}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &2114750673
 GameObject:
@@ -22642,10 +22556,10 @@ RectTransform:
   m_Father: {fileID: 1188442716}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 340, y: -240}
-  m_SizeDelta: {x: 80, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2114750675
 MonoBehaviour:
@@ -22752,7 +22666,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 251121908}
   amountText: {fileID: 946004552}
-  buttonValue: 0
   itemReferenced: {fileID: 0}
 --- !u!1 &2125355645
 GameObject:
@@ -23318,10 +23231,10 @@ RectTransform:
   m_Father: {fileID: 1272184259}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 140, y: -40}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2136292721
 MonoBehaviour:
@@ -23428,7 +23341,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonImage: {fileID: 563365797}
   amountText: {fileID: 148018196}
-  buttonValue: 0
   itemReferenced: {fileID: 8520950257077829993, guid: dfd0776128f7be8499aef5a63fa6d0de,
     type: 3}
 --- !u!1001 &607718248110403497
@@ -23567,6 +23479,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 914419763}
     m_Modifications:
+    - target: {fileID: 5155260878229754968, guid: ecde0f462cf9d6c43926dbd2819e1408,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5155260878229754968, guid: ecde0f462cf9d6c43926dbd2819e1408,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 2125355647}
+    - target: {fileID: 5155260878229754968, guid: ecde0f462cf9d6c43926dbd2819e1408,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -472408619
+      objectReference: {fileID: 0}
     - target: {fileID: 5155260878229754972, guid: ecde0f462cf9d6c43926dbd2819e1408,
         type: 3}
       propertyPath: m_Name
@@ -23681,6 +23608,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5155260878229754973, guid: ecde0f462cf9d6c43926dbd2819e1408,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5155260878229754973, guid: ecde0f462cf9d6c43926dbd2819e1408,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5155260878229754973, guid: ecde0f462cf9d6c43926dbd2819e1408,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecde0f462cf9d6c43926dbd2819e1408, type: 3}

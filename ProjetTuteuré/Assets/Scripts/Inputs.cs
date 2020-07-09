@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Inputs.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/Inputs.inputactions'
 
 using System;
 using System.Collections;
@@ -180,6 +180,14 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Open Shop"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""80d00cda-d862-486e-a529-da979c9da999"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -204,6 +212,17 @@ public class @Inputs : IInputActionCollection, IDisposable
                     ""action"": ""Open Inventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""99e24d09-e9e4-4a36-a942-fbe3ec177111"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Open Shop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -221,6 +240,7 @@ public class @Inputs : IInputActionCollection, IDisposable
         m_MenuControls = asset.FindActionMap("Menu Controls", throwIfNotFound: true);
         m_MenuControls_PauseMenu = m_MenuControls.FindAction("Pause Menu", throwIfNotFound: true);
         m_MenuControls_OpenInventory = m_MenuControls.FindAction("Open Inventory", throwIfNotFound: true);
+        m_MenuControls_OpenShop = m_MenuControls.FindAction("Open Shop", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -337,12 +357,14 @@ public class @Inputs : IInputActionCollection, IDisposable
     private IMenuControlsActions m_MenuControlsActionsCallbackInterface;
     private readonly InputAction m_MenuControls_PauseMenu;
     private readonly InputAction m_MenuControls_OpenInventory;
+    private readonly InputAction m_MenuControls_OpenShop;
     public struct MenuControlsActions
     {
         private @Inputs m_Wrapper;
         public MenuControlsActions(@Inputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @PauseMenu => m_Wrapper.m_MenuControls_PauseMenu;
         public InputAction @OpenInventory => m_Wrapper.m_MenuControls_OpenInventory;
+        public InputAction @OpenShop => m_Wrapper.m_MenuControls_OpenShop;
         public InputActionMap Get() { return m_Wrapper.m_MenuControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -358,6 +380,9 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @OpenInventory.started -= m_Wrapper.m_MenuControlsActionsCallbackInterface.OnOpenInventory;
                 @OpenInventory.performed -= m_Wrapper.m_MenuControlsActionsCallbackInterface.OnOpenInventory;
                 @OpenInventory.canceled -= m_Wrapper.m_MenuControlsActionsCallbackInterface.OnOpenInventory;
+                @OpenShop.started -= m_Wrapper.m_MenuControlsActionsCallbackInterface.OnOpenShop;
+                @OpenShop.performed -= m_Wrapper.m_MenuControlsActionsCallbackInterface.OnOpenShop;
+                @OpenShop.canceled -= m_Wrapper.m_MenuControlsActionsCallbackInterface.OnOpenShop;
             }
             m_Wrapper.m_MenuControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -368,6 +393,9 @@ public class @Inputs : IInputActionCollection, IDisposable
                 @OpenInventory.started += instance.OnOpenInventory;
                 @OpenInventory.performed += instance.OnOpenInventory;
                 @OpenInventory.canceled += instance.OnOpenInventory;
+                @OpenShop.started += instance.OnOpenShop;
+                @OpenShop.performed += instance.OnOpenShop;
+                @OpenShop.canceled += instance.OnOpenShop;
             }
         }
     }
@@ -384,5 +412,6 @@ public class @Inputs : IInputActionCollection, IDisposable
     {
         void OnPauseMenu(InputAction.CallbackContext context);
         void OnOpenInventory(InputAction.CallbackContext context);
+        void OnOpenShop(InputAction.CallbackContext context);
     }
 }

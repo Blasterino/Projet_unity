@@ -15,6 +15,8 @@ public abstract class Character : MonoBehaviour {
 
     public GameObject hitValuePrefab;
 
+    private GameObject canvas;
+
     public bool isMoving
     {
         get
@@ -31,6 +33,10 @@ public abstract class Character : MonoBehaviour {
 
     public LifeBar lifeBar;
 
+    protected void Awake()
+    {
+        canvas = GameObject.FindGameObjectWithTag("WorldCanvas");
+    }
 
     // Use this for initialization
     protected virtual void Start () {
@@ -127,22 +133,22 @@ public abstract class Character : MonoBehaviour {
 
     protected void ShowHitEffects(float value, Vector3 position, bool crit)
     {
-        Vector3 rndPos = new Vector3(UnityEngine.Random.Range(-1f, 1f), 0, 0);
+        Vector3 rndPos = new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f), 0);
 
         GameObject obj = Instantiate(hitValuePrefab);
+        
         obj.GetComponent<Text>().text = value.ToString();
         if (crit)
         {
             obj.GetComponent<Text>().color = Color.red;
         }
         obj.GetComponent<DestroyTimer>().EnableTimer(1.0f);
+        obj.GetComponent<MoveUpper>().moveDirection = new Vector3(UnityEngine.Random.Range(-1f, 1f), 1, 0);
 
-        GameObject canvas = GameObject.FindGameObjectWithTag("WorldCanvas");
         obj.transform.SetParent(canvas.transform, false);
         obj.transform.localRotation = Quaternion.identity;
-        obj.transform.localScale = Vector3.one;
-       // obj.transform.position = position;
-        obj.transform.position = Camera.main.WorldToScreenPoint(position + rndPos);
+        obj.transform.localScale = new Vector3(0.03f, 0.03f, 1f);
+        obj.transform.position = position+rndPos;
 
     }
 
