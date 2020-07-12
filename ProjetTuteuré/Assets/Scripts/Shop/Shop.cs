@@ -61,6 +61,8 @@ public class Shop : MonoBehaviour
         GameManager.instance.shopActive = false;
         Player.instance.canMove = true;
         Player.instance.canAttack = true;
+        //on prévient les menus que le shop est fermé
+        GameObject.FindGameObjectWithTag("Player").GetComponent<MenusJeu>().setShopMenu(false);
     }
 
     public void OpenBuyMenu()

@@ -38,17 +38,21 @@ public class SalleManager : MonoBehaviour {
 	void FixedUpdate () {
         if (isRoomBoss)
         {
-            if (!boss.GetComponent<Enemy>().isAlive)
+            if(boss != null)
             {
-                gameManager.GetComponent<GameManager>().finirRoom(room);
-                timeAfterRoomEnd = Time.time;
-                roomEntre = false;
-                foreach (Porte por in listePortes)
+                if (!boss.GetComponent<Enemy>().isAlive)
                 {
-                    if (por != null) { por.open(); }
+                    gameManager.GetComponent<GameManager>().finirRoom(room);
+                    timeAfterRoomEnd = Time.time;
+                    roomEntre = false;
+                    foreach (Porte por in listePortes)
+                    {
+                        if (por != null) { por.open(); }
 
+                    }
                 }
             }
+            
         } else
         {
             if (checkEnnemis())
@@ -87,7 +91,7 @@ public class SalleManager : MonoBehaviour {
             if (ennemisDepart == 0)
             {
                 
-                int nbEnnemis = Random.Range(0, 5);
+                int nbEnnemis = Random.Range(1, 5);
                 for (int k = 0; k < nbEnnemis; k++)
                 {
                     int rand = (int)Random.Range(0f, 100f);

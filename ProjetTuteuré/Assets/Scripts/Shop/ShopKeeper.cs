@@ -9,6 +9,7 @@ public class ShopKeeper : MonoBehaviour
 
     public GameObject[] itemsInStock = new GameObject[24];
     public List<object[]> itemsForSale;
+    private MenusJeu menusJeu;
 
     Inputs inputs;
     float shopKeyPressed;
@@ -18,22 +19,27 @@ public class ShopKeeper : MonoBehaviour
         //inputs
         inputs = new Inputs();
         inputs.MenuControls.OpenShop.performed += ctx => shopKeyPressed = ctx.ReadValue<float>();
+
+        //menujeu
+        menusJeu = GameObject.FindGameObjectWithTag("Player").GetComponent<MenusJeu>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
         itemsForSale = new List<object[]>();
+
         selectItemsToSale();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(canOpen && shopKeyPressed==1 && !Shop.instance.shopMenu.activeInHierarchy)
+        if(canOpen && shopKeyPressed==1 && !Shop.instance.shopMenu.activeInHierarchy && !menusJeu.getPauseMenuOpened())
         {
             Shop.instance.itemsForSale = itemsForSale;
             Shop.instance.OpenShop();
+            menusJeu.setShopMenu(true);
         }
     }
 

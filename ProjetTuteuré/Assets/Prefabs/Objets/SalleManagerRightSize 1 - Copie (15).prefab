@@ -54,10 +54,13 @@ MonoBehaviour:
   porteEst: {fileID: 6874635808501863399}
   porteSud: {fileID: 0}
   ennemiPrefab: {fileID: 0}
+  ennemiPrefab2: {fileID: 0}
+  boss: {fileID: 0}
   posCentre: {x: 0, y: 0, z: 0}
   nbEnnemisInSalle: 0
   ennemisDepart: 0
   itemsDetruits: 0
+  isRoomBoss: 0
   listeItem: []
   timeAfterRoomEnd: 0
 --- !u!1001 &4522718768877966762
@@ -67,6 +70,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2506382051227422893}
     m_Modifications:
+    - target: {fileID: 1146185919210888, guid: f31f391212b15f94ba0f3e95e6c646b8, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146185919210888, guid: f31f391212b15f94ba0f3e95e6c646b8, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1771121592838468, guid: f31f391212b15f94ba0f3e95e6c646b8, type: 3}
       propertyPath: m_Name
       value: Porte
@@ -147,6 +158,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2506382051227422893}
     m_Modifications:
+    - target: {fileID: 1146185919210888, guid: f31f391212b15f94ba0f3e95e6c646b8, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146185919210888, guid: f31f391212b15f94ba0f3e95e6c646b8, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1771121592838468, guid: f31f391212b15f94ba0f3e95e6c646b8, type: 3}
       propertyPath: m_Name
       value: Porte (3)

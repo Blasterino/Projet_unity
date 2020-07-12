@@ -19,14 +19,13 @@ public class Enemy : Character {
     protected override void Start()
     {
         base.Start();
-        speed = 4f;
-        
-        //lifeBar = GameObject.FindGameObjectWithTag("EnemyLifeBar").GetComponent<LifeBar>();
+        //speed = 4f;
         lifeBar.SetProgress(currentHealth / maxHealth);
     }
 
-    protected override void Update()
+    protected override void FixedUpdate()
     {
+
         Vector3 pos = new Vector3(gameObject.transform.position.x - 0.2f, gameObject.transform.position.y + 1.2f, gameObject.transform.position.z);
         lifeBar.transform.position = Camera.main.WorldToScreenPoint(pos);
 
@@ -46,13 +45,13 @@ public class Enemy : Character {
         
     }
 
-    private void FixedUpdate()
+    public void updateEnemyHP(float newHP)
     {
-        if (!isAlive)
-        {
-            return;
-        }
+        this.maxHealth = newHP;
+        this.currentHealth = newHP;
+        lifeBar.EnableLifeBar(true);
     }
+
 
     public void StopMovement()
     {
@@ -63,10 +62,10 @@ public class Enemy : Character {
 
     public override void Die()
     {
-        base.Die();
+        
         if (!isBoss)
         {
-            GetComponent<BoxCollider2D>().enabled = false;
+            GetComponent<Collider2D>().enabled = false;
             manager.RemoveEnemy();
         }
         
@@ -75,13 +74,17 @@ public class Enemy : Character {
         dropItem();
         if(ai != null)
         {
-            ai.enabled = false;
+            ai.setAlive(false);
         } else if( distAi != null)
         {
-            distAi.enabled = false;
+            distAi.setAlive(false);
         }
 
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().gold += UnityEngine.Random.Range(borneInfMoney, borneSupMoney);
+        int moneyWon = UnityEngine.Random.Range(borneInfMoney, borneSupMoney);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().ShowBonusEffect(moneyWon, 6);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().gold += moneyWon;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<InventaireScript>().updateMenuInventaire();
+        base.Die();
     }
 
     public override void Attack(float range)

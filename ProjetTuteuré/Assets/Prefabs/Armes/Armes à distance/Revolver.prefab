@@ -95,6 +95,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -106,6 +107,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -148,11 +150,12 @@ MonoBehaviour:
   strratio: 0
   agiratio: 0
   endratio: 0
-  ammunition: 80
-  totalammunition: 80
+  ammunition: 50
+  totalammunition: 50
   range: 15
   projectileSpeed: 40
   nbBalles: 1
+  spread: 0
   fireRate: 0.4
   projectilePrefab: {fileID: 1577481119012058, guid: 7c3845c06ca423d40a0fec3966f4936d,
     type: 3}

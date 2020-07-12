@@ -12,8 +12,9 @@ public class MenusJeu : MonoBehaviour
     private bool showPauseMenu = false;
     private bool showInventory = false;
     private bool showSaveMenu = false;
+    private bool showShopMenu = false;
     private Player player;
-    private GameObject pauseMenuCanvas, inventoryCanvas, saveCanvas, enterName1Canvas, loadCanvas, enterName2Canvas, enterName3Canvas, uiarmes, lifebar;
+    private GameObject pauseMenuCanvas, inventoryCanvas, shopCanvas, saveCanvas, enterName1Canvas, loadCanvas, enterName2Canvas, enterName3Canvas, uiarmes, lifebar;
     private Text textSave1, textSave2, textSave3, textLoad1, textLoad2, textLoad3;
     private GameObject UIObject;
 
@@ -38,6 +39,7 @@ public class MenusJeu : MonoBehaviour
         pauseMenuCanvas = UIObject.transform.GetChild(0).gameObject;
         inventoryCanvas = UIObject.transform.GetChild(1).gameObject;
         enterName1Canvas = UIObject.transform.GetChild(3).gameObject;
+        shopCanvas = GameObject.FindGameObjectWithTag("Shop");
         loadCanvas = UIObject.transform.GetChild(4).gameObject;
         saveCanvas = UIObject.transform.GetChild(2).gameObject;
         enterName2Canvas = UIObject.transform.GetChild(6).gameObject;
@@ -89,12 +91,12 @@ public class MenusJeu : MonoBehaviour
     void FixedUpdate()
         {
             
-            if (pauseKeyDown && showInventory == false && showSaveMenu== false && player.canOpenMenus)
+            if (pauseKeyDown && !showInventory && !showSaveMenu && !showShopMenu && player.canOpenMenus)
             {
                 showPauseMenu = !showPauseMenu;
             }
 
-            if (invKeyDown && showPauseMenu == false && showSaveMenu==false && player.canOpenMenus)
+            if (invKeyDown && !showPauseMenu && !showSaveMenu && !showShopMenu && player.canOpenMenus)
             {
                 showInventory = !showInventory;
             }
@@ -136,6 +138,16 @@ public class MenusJeu : MonoBehaviour
         invKeyDown = false;
         pauseKeyDown = false;
 
+    }
+
+    public void setShopMenu(bool open)
+    {
+        this.showShopMenu = open;
+    }
+
+    public bool getPauseMenuOpened()
+    {
+        return this.showPauseMenu;
     }
 
     public void Continue()

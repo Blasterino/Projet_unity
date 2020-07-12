@@ -23,18 +23,23 @@ public class Projectile : MonoBehaviour {
         
         if(collision.tag != "Projectile")
         {
-            if (collision.tag == "Enemy" && isFriendly && collision.GetComponent<Enemy>().isAlive)
+            if (collision.tag == "Enemy" && isFriendly)
             {
-                collision.GetComponentInParent<Enemy>().TakeDamage(damage, Vector3.zero, 50, isCrit);
-                
-                if (!isSlash)
+                if (collision.GetComponent<Enemy>().isAlive)
                 {
-                Destroy(gameObject);
+                    //TODO : knockback
+                    collision.GetComponentInParent<Enemy>().TakeDamage(damage, Vector3.zero, 50, isCrit);
+
+                    if (!isSlash)
+                    {
+                        Destroy(gameObject);
+                    }
                 }
+                
                 
             } else if (collision.tag == "Player" && !isFriendly)
             {
-                
+                //TODO : knockback
                 collision.GetComponentInParent<Player>().TakeDamage(damage, Vector3.zero, 50, isCrit);
                 rigidBody.velocity = Vector2.zero;
                 if (!isSlash)
@@ -54,7 +59,7 @@ public class Projectile : MonoBehaviour {
     }
 
 
-    void Update () {
+    void FixedUpdate () {
         //teste si le projectile a dépassé sa range, si oui il le détruit
         if ((float)System.Math.Sqrt(System.Math.Pow(originCoordX - transform.position.x, 2) + System.Math.Pow(originCoordY - transform.position.y, 2)) > range)
         {

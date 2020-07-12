@@ -40,11 +40,15 @@ public class EnemyDistanceIA : MonoBehaviour
 
     private float decisionDuration;
 
+    //utile pour désactiver l'IA
+    private bool alive;
+
     void Start()
     {
+        alive = true;
         weights = new List<DecisionWeight>();
         enemy = GetComponent<Enemy>();
-        GetComponent<Enemy>().maxHealth = GameObject.Find("GameManager").GetComponent<GameManager>().numeroNiveau * 16 + 150;
+        enemy.updateEnemyHP(GameObject.Find("GameManager").GetComponent<GameManager>().numeroNiveau * 16 + 100);
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -107,6 +111,11 @@ public class EnemyDistanceIA : MonoBehaviour
         enemy.rigidBody.velocity = directionVector * enemy.speed;
 
         decisionDuration = Random.Range(0.3f, 0.6f);
+    }
+
+    public void setAlive(bool alive)
+    {
+        this.alive = alive;
     }
 
     private void DecideWithWeights(int attack, int wait, int chase, int move, int flee)
@@ -181,67 +190,77 @@ public class EnemyDistanceIA : MonoBehaviour
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
 
-        //On récupère la direction dans laquelle est le player, pour plus tard
-        Vector3 direction = player.transform.position - transform.position;
-        direction.Normalize();
+        if (alive)
+        {
 
-        //calculates the distance between the hero and enemy
-        //no need the actual distance, only the squared distance, because the square root operation is expensive and unnecessary
-        float sqrDistance = Vector3.SqrMagnitude(player.transform.position - transform.position);
-        //sets true when the distance between the hero and enemy falls between attackReachMin and attackReachMax
-        bool canReach = attackReachMin < sqrDistance && sqrDistance < attackReachMax ;
-        //Debug.Log(sqrDistance);
-        //Debug.Log(attackReachMax);
-        //Debug.Log(attackReachMin);
-        if (canReach && currentAction == EnemyAction.Chase)
-        {
-            SetDecision(EnemyAction.Wait);
-        }
 
-        if (decisionDuration > 0.0f)
-        {
-            decisionDuration -= Time.deltaTime;
-        }
-        else
-        {
-            //Si le player est loin OU si le player est prêt mais qu'il y a un mur qui bloque, on passe en mode ROAM
-            //Comportement très temporaire, mais le test sera utilse plus tard dans le path finding !
-            /*
-             Debug.Log((playerDetector.playerIsNearby && Physics2D.Raycast(transform.position, direction,
-              (float)System.Math.Sqrt(System.Math.Pow(player.transform.position.x - transform.position.x, 2)
-              + System.Math.Pow(player.transform.position.y - transform.position.y, 2)
-             ), 1 << 0)));
-               */
-            if (!playerDetector.playerIsNearby || (playerDetector.playerIsNearby && Physics2D.Raycast(transform.position, direction,
-                (float)System.Math.Sqrt(System.Math.Pow(player.transform.position.x - transform.position.x, 2)
-                + System.Math.Pow(player.transform.position.y - transform.position.y, 2)
-               ), 1 << 0)))
+            //On récupère la direction dans laquelle est le player, pour plus tard
+            Vector3 direction = player.transform.position - transform.position;
+            direction.Normalize();
+
+            //calculates the distance between the hero and enemy
+            //no need the actual distance, only the squared distance, because the square root operation is expensive and unnecessary
+            float sqrDistance = Vector3.SqrMagnitude(player.transform.position - transform.position);
+            //sets true when the distance between the hero and enemy falls between attackReachMin and attackReachMax
+            bool canReach = attackReachMin < sqrDistance && sqrDistance < attackReachMax ;
+            //Debug.Log(sqrDistance);
+            //Debug.Log(attackReachMax);
+            //Debug.Log(attackReachMin);
+            if (canReach && currentAction == EnemyAction.Chase)
             {
-                DecideWithWeights(0, 30, 0, 70,0);
+                SetDecision(EnemyAction.Wait);
+            }
+
+            if (decisionDuration > 0.0f)
+            {
+                decisionDuration -= Time.deltaTime;
             }
             else
             {
-                //Debug.Log(canReach);
-
-                if (canReach)
+                //Si le player est loin OU si le player est prêt mais qu'il y a un mur qui bloque, on passe en mode ROAM
+                //Comportement très temporaire, mais le test sera utilse plus tard dans le path finding !
+                /*
+                 Debug.Log((playerDetector.playerIsNearby && Physics2D.Raycast(transform.position, direction,
+                  (float)System.Math.Sqrt(System.Math.Pow(player.transform.position.x - transform.position.x, 2)
+                  + System.Math.Pow(player.transform.position.y - transform.position.y, 2)
+                 ), 1 << 0)));
+                   */
+                if (!playerDetector.playerIsNearby || (playerDetector.playerIsNearby && Physics2D.Raycast(transform.position, direction,
+                    (float)System.Math.Sqrt(System.Math.Pow(player.transform.position.x - transform.position.x, 2)
+                    + System.Math.Pow(player.transform.position.y - transform.position.y, 2)
+                   ), 1 << 0)))
                 {
-                    DecideWithWeights(100, 0, 0, 0,0);
+                    DecideWithWeights(0, 30, 0, 70,0);
                 }
                 else
                 {
-                    if (sqrDistance > attackReachMax)
+                    //Debug.Log(canReach);
+
+                    if (canReach)
                     {
-                        DecideWithWeights(0, 0, 100, 0, 0);
+                        DecideWithWeights(100, 0, 0, 0,0);
                     }
-                    else if (sqrDistance < attackReachMin)
+                    else
                     {
-                        DecideWithWeights(0, 0, 0, 0, 100);
+                        if (sqrDistance > attackReachMax)
+                        {
+                            DecideWithWeights(0, 0, 100, 0, 0);
+                        }
+                        else if (sqrDistance < attackReachMin)
+                        {
+                            DecideWithWeights(0, 0, 0, 0, 100);
+                        }
                     }
                 }
             }
+
+        }
+        else
+        {
+            Wait();
         }
     }
 }

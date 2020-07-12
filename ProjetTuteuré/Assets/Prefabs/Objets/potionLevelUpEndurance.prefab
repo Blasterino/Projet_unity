@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6413256804300219835}
   - component: {fileID: 5335189279456836555}
   - component: {fileID: 7697649258322514666}
+  - component: {fileID: -5178759536493281353}
   m_Layer: 12
   m_Name: potionLevelUpEndurance
   m_TagString: Consommable
@@ -49,6 +50,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -60,6 +62,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -146,7 +149,7 @@ MonoBehaviour:
   inventaire: {fileID: 0}
   player: {fileID: 0}
   consommationsRestantes: 1
-  typeConsommable: 3
+  typeConsommable: 4
   healPoints: 0
   levelPoints: 2
 --- !u!114 &7697649258322514666
@@ -174,3 +177,18 @@ MonoBehaviour:
   amountToChange: 0
   weaponStrength: 0
   armorStrength: 0
+--- !u!114 &-5178759536493281353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7630497348341259548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1

@@ -152,7 +152,7 @@ MonoBehaviour:
   agiratio: 0
   endratio: 0
   range: 1
-  hitRate: 0.05
+  hitRate: 0.1
 --- !u!114 &2500478658368433713
 MonoBehaviour:
   m_ObjectHideFlags: 0

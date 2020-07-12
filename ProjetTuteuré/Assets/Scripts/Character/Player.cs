@@ -25,6 +25,8 @@ public class Player : Character {
 
     //attributs concernant les tirs
     float nextFire = 0.0f;
+    //temps actuel
+    float actualTime;
 
     // attributs concernant le combat
     float switchCooldown = 0.0f;
@@ -83,9 +85,12 @@ public class Player : Character {
     //texte des HP
     public Text HPtext;
 
+    //texte du cooldown du coup
+    public Text WeaponCooldown;
 
-    void Awake()
+    private new void Awake()
     {
+        base.Awake();
 
         //création du inputaction
         inputs = new Inputs();
@@ -94,6 +99,9 @@ public class Player : Character {
         inputs.PlayerControls.SwitchWeapon.performed += ctx => switchKeyPressed = ctx.ReadValue<float>();
         inputs.PlayerControls.FireKey.performed += ctx => fireKeyPressed = ctx.ReadValue<float>();
         inputs.PlayerControls.MousePosition.performed += ctx => mousePosition = ctx.ReadValue<Vector2>();
+
+        //lancement du temps
+        actualTime = Time.time;
 
         DatasNames datasnames = (DatasNames)DataManager.LoadNames("names.sav");
         if (datasnames != null)
@@ -144,7 +152,7 @@ public class Player : Character {
                 }
             }
         }
-        base.Awake();
+        
     }
 
 
@@ -174,7 +182,7 @@ public class Player : Character {
 
     
 
-    private void FixedUpdate() {
+    private new void FixedUpdate() {
         if (Time.timeScale == 1)
         {
             GetInput();
@@ -190,15 +198,31 @@ public class Player : Character {
             return;
         }
         Move();
+        base.FixedUpdate();
+        actualTime = Time.time;
+        updateWeaponCooldownText();
     }
 
-    
+    //met à jour le texte du weaponcooldown
+    private void updateWeaponCooldownText()
+    {
+        if(nextFire - actualTime <= 0)
+        {
+            WeaponCooldown.text = "0";
+        } else
+        {
+            WeaponCooldown.text = (nextFire - actualTime).ToString().Substring(0, 3);
+        }
+        
+    }
+
     //Affiche un texte flotant de HP rendus ou de stats gagnées
     //value : 1 : HP rendus
     // 2 : bonus agi
     // 3 : bonus str
     // 4 : bonus endu
     // 5 : ammo refill
+    // 6 : moneyyy
     public void ShowBonusEffect(int value, int type)
     {
         //Vector3 rndPos = new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f), 0);
@@ -226,6 +250,10 @@ public class Player : Character {
             case 5:
                 obj.GetComponent<Text>().text = "Ammo Refill";
                 obj.GetComponent<Text>().color = Color.gray;
+                break;
+            case 6:
+                obj.GetComponent<Text>().text = "+ "+ value.ToString() + " Golds";
+                obj.GetComponent<Text>().color = Color.yellow;
                 break;
         }
         obj.GetComponent<DestroyTimer>().EnableTimer(2.0f);
@@ -266,16 +294,16 @@ public class Player : Character {
         //input d'attaque
         if (fireKeyPressed==1 && !this.GetComponent<MenusJeu>().getShowInventory())
         {
-            if(Time.time > nextFire && isAlive && canAttack)
+            if(actualTime > nextFire && isAlive && canAttack)
             {
                 if (typeArmeEquipee)
                 {
                     animator.SetTrigger("Attacking");
-                    nextFire = Time.time + armeCorpsACorpsEquipee.GetComponent<MeleeWeapon>().hitRate - 0.01f * agility;
+                    nextFire = actualTime + armeCorpsACorpsEquipee.GetComponent<MeleeWeapon>().hitRate - 0.01f * agility;
                     armeCorpsACorpsEquipee.gameObject.GetComponent<MeleeWeapon>().Hit(mousePosition);
                 } else
                 {
-                    nextFire = Time.time + armeDistanceEquipee.GetComponent<RangedWeapon>().fireRate - 0.01f * agility; //firerate -> cooldown de tir
+                    nextFire = actualTime + armeDistanceEquipee.GetComponent<RangedWeapon>().fireRate - 0.01f * agility; //firerate -> cooldown de tir
                     armeDistanceEquipee.gameObject.GetComponent<RangedWeapon>().Fire(mousePosition);
                 }
                     
@@ -287,7 +315,7 @@ public class Player : Character {
         if (switchKeyPressed == 1 && !this.GetComponent<MenusJeu>().getShowInventory())
         {
             //switch le type d'arme : cooldown de 1s
-            if (Time.time > switchCooldown)
+            if (actualTime > switchCooldown)
             {
 
                 //On met en "évidence" le type d'arme équipée
@@ -301,7 +329,7 @@ public class Player : Character {
                     UIPanelCAC.enabled = true;
                     UIPanelDist.enabled = false;
                 }
-                switchCooldown = Time.time + 1f;
+                switchCooldown = actualTime + 1f;
                 typeArmeEquipee = !typeArmeEquipee;
             }
         }
@@ -337,9 +365,12 @@ public class Player : Character {
 
     public override void Die()
     {
-        base.Die();
+        
         canMove = false;
         canAttack = false;
+
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        GetComponent<Collider2D>().enabled = false;
 
         //arrête la musique
         GameObject.Find("GameAudioManager").GetComponent<AudioSource>().Stop();
@@ -347,6 +378,8 @@ public class Player : Character {
         //joue celle du gameover
         audioSource.PlayOneShot(gameOverClip);
         StartCoroutine("ShowGameOver");
+
+        base.Die();
     }
 
     private IEnumerator ShowGameOver()
@@ -473,6 +506,40 @@ public class Player : Character {
             currentHealth = datas.currentHealth;
             timerStart = datas.timerStart;
         }
+    }
+
+    public void updateStats()
+    {
+        //On update la force du joueur en fonction de ses armures equipees
+        strength = basestrength +
+        armureTeteEquipee.GetComponent<HeadArmor>().strength +
+        armureTorseEquipee.GetComponent<BodyArmor>().strength +
+        armureJambesEquipee.GetComponent<LegArmor>().strength;
+        //Debug.Log(GetComponent<Player>().armureTeteEquipee.GetComponent<HeadArmor>().strength);
+        //Debug.Log(GetComponent<Player>().armureTeteEquipee.GetComponent<BodyArmor>().strength);
+        //Debug.Log(GetComponent<Player>().armureTeteEquipee.GetComponent<LegArmor>().strength);
+
+        //idem pour l'agilite
+        agility = baseagility +
+        armureTeteEquipee.GetComponent<HeadArmor>().agility +
+        armureTorseEquipee.GetComponent<BodyArmor>().agility +
+        armureJambesEquipee.GetComponent<LegArmor>().agility;
+
+        //idem pour l'endurance
+        endurance = baseendurance +
+        armureTeteEquipee.GetComponent<HeadArmor>().endurance +
+        armureTorseEquipee.GetComponent<BodyArmor>().endurance +
+        armureJambesEquipee.GetComponent<LegArmor>().endurance;
+
+        float healthPercentage = currentHealth/maxHealth;
+
+        maxHealth = baseHealth + GetComponent<Player>().endurance*5;
+
+        currentHealth = (int)(maxHealth*healthPercentage);
+
+        activeSpeed = speed + agility * 0.1f;
+
+        updateHP();
     }
 
     private void OnEnable()

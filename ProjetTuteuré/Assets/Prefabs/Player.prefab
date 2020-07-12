@@ -431,6 +431,8 @@ MonoBehaviour:
   gold: 1000
   canMove: 0
   canAttack: 0
+  HPtext: {fileID: 4195159614584484272}
+  WeaponCooldown: {fileID: 0}
 --- !u!212 &212641445425918770
 SpriteRenderer:
   m_ObjectHideFlags: 0

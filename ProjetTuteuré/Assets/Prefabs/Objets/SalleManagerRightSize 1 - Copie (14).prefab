@@ -53,8 +53,15 @@ MonoBehaviour:
   porteEst: {fileID: 0}
   porteSud: {fileID: 0}
   ennemiPrefab: {fileID: 0}
+  ennemiPrefab2: {fileID: 0}
+  boss: {fileID: 0}
   posCentre: {x: 0, y: 0, z: 0}
   nbEnnemisInSalle: 0
+  ennemisDepart: 0
+  itemsDetruits: 0
+  isRoomBoss: 0
+  listeItem: []
+  timeAfterRoomEnd: 0
 --- !u!1001 &4522718768877966762
 PrefabInstance:
   m_ObjectHideFlags: 0

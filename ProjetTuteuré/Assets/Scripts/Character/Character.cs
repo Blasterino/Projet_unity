@@ -25,15 +25,15 @@ public abstract class Character : MonoBehaviour {
         }
     }
 
-    public float baseHealth = 100f;
-    public float maxHealth = 100f;
+    public float baseHealth;
+    public float maxHealth;
     public float currentHealth;
 
     public bool isAlive;
 
     public LifeBar lifeBar;
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         canvas = GameObject.FindGameObjectWithTag("WorldCanvas");
     }
@@ -48,11 +48,7 @@ public abstract class Character : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	protected virtual void Update () {
-        if (!isAlive)
-        {
-            return;
-        }
+	protected virtual void FixedUpdate () {
         HandleMovement();
 	}
 
@@ -86,7 +82,7 @@ public abstract class Character : MonoBehaviour {
         {
             if(collider.attachedRigidbody != null)
             {
-                TakeDamage(10, hitVector,10, false);
+                TakeDamage(10, hitVector, 10, false);
             }
         }
     }
@@ -95,7 +91,8 @@ public abstract class Character : MonoBehaviour {
     {
         isAlive = false;
         animator.SetBool("IsAlive", false);
-        gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        //gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        /*
         if(gameObject.GetComponent<BoxCollider2D>() != null)
         {
             gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
@@ -103,14 +100,16 @@ public abstract class Character : MonoBehaviour {
         {
             gameObject.GetComponent<EdgeCollider2D>().isTrigger = true;
         }
-        
+        */
     }
 
 
     public virtual void TakeDamage(float damage, Vector3 hitVector, float force, bool crit)
     {
-        rigidBody.AddForce(force * hitVector);
+        //force /= 100;
+        rigidBody.AddForce(force * hitVector, ForceMode2D.Force);
         currentHealth -= damage;
+        if (currentHealth < 0) currentHealth = 0;
         ShowHitEffects(damage, gameObject.transform.position, crit);
 
         if (isAlive && currentHealth <= 0)

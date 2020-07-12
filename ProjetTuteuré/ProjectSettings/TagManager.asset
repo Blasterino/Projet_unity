@@ -23,6 +23,7 @@ TagManager:
   - Collision
   - UI
   - GameManager
+  - Shop
   layers:
   - Default
   - TransparentFX

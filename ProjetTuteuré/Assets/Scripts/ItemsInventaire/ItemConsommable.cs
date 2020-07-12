@@ -45,7 +45,7 @@ public class ItemConsommable : Item
                 
 
         }
-        playerScript.gameObject.GetComponent<InventaireScript>().updateStats();
+        playerScript.updateStats();
     }
 
 

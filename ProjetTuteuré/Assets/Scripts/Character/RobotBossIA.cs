@@ -16,16 +16,16 @@ public class RobotBossIA : MonoBehaviour
     {
         state = -1;
         startPos = gameObject.transform.position.y;
-        GetComponent<Enemy>().maxHealth = GameObject.Find("GameManager").GetComponent<GameManager>().numeroNiveau / 10 * 100 + 400;
+        GetComponent<Enemy>().updateEnemyHP(GameObject.Find("GameManager").GetComponent<GameManager>().numeroNiveau / 10 * 100 + 400);
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!gameObject.GetComponent<Enemy>().isAlive)
         {
             gameObject.GetComponent<Animator>().SetBool("IsAlive", false);
-            gameObject.GetComponent<EdgeCollider2D>().isTrigger = true;
+            gameObject.GetComponent<Collider2D>().isTrigger = true;
             return;
         }
         if(state == 0)

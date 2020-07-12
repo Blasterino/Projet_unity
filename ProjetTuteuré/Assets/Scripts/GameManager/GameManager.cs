@@ -261,7 +261,7 @@ public class GameManager : MonoBehaviour {
                     listeObjetsDroppés.Add(objinst);
                 } catch(ArgumentException e)
                 {
-                    
+                    Debug.Log(e.Message);
                 }
                 
             }

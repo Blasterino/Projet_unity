@@ -55,8 +55,15 @@ MonoBehaviour:
   porteEst: {fileID: 6874635808501863399}
   porteSud: {fileID: 0}
   ennemiPrefab: {fileID: 0}
+  ennemiPrefab2: {fileID: 0}
+  boss: {fileID: 0}
   posCentre: {x: 0, y: 0, z: 0}
   nbEnnemisInSalle: 0
+  ennemisDepart: 0
+  itemsDetruits: 0
+  isRoomBoss: 0
+  listeItem: []
+  timeAfterRoomEnd: 0
 --- !u!1 &5040681334757637682
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,6 +113,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -117,6 +125,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -127,7 +136,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1742554143
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300016, guid: f323355f6f45b9947b36ff19067ef8da, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -213,9 +222,9 @@ GameObject:
   - component: {fileID: 4989996771976714296}
   - component: {fileID: 4983311087285383402}
   - component: {fileID: 4928913896332897988}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: enterDetector
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

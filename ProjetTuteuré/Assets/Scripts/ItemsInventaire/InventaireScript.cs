@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System;
 
-[RequireComponent(typeof(Button))]
 public class InventaireScript : MonoBehaviour {
 
     public static InventaireScript instance;
@@ -161,7 +160,7 @@ public class InventaireScript : MonoBehaviour {
 
 
         //On update les stats dus au changement d'armure
-        updateStats();
+        GetComponent<Player>().updateStats();
 
         //On change la force
         GameObject texteForce = inventoryCanvas.GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>().GetChild(1).gameObject;
@@ -180,32 +179,7 @@ public class InventaireScript : MonoBehaviour {
 
     }
 
-    public void updateStats()
-    {
-        //On update la force du joueur en fonction de ses armures equipees
-        GetComponent<Player>().strength = GetComponent<Player>().basestrength + 
-        GetComponent<Player>().armureTeteEquipee.GetComponent<HeadArmor>().strength +
-        GetComponent<Player>().armureTorseEquipee.GetComponent<BodyArmor>().strength +
-        GetComponent<Player>().armureJambesEquipee.GetComponent<LegArmor>().strength;
-        //Debug.Log(GetComponent<Player>().armureTeteEquipee.GetComponent<HeadArmor>().strength);
-        //Debug.Log(GetComponent<Player>().armureTeteEquipee.GetComponent<BodyArmor>().strength);
-        //Debug.Log(GetComponent<Player>().armureTeteEquipee.GetComponent<LegArmor>().strength);
-
-        //idem pour l'agilite
-        GetComponent<Player>().agility = GetComponent<Player>().baseagility +
-        GetComponent<Player>().armureTeteEquipee.GetComponent<HeadArmor>().agility +
-        GetComponent<Player>().armureTorseEquipee.GetComponent<BodyArmor>().agility +
-        GetComponent<Player>().armureJambesEquipee.GetComponent<LegArmor>().agility;
-
-        //idem pour l'endurance
-        GetComponent<Player>().endurance = GetComponent<Player>().baseendurance +
-        GetComponent<Player>().armureTeteEquipee.GetComponent<HeadArmor>().endurance +
-        GetComponent<Player>().armureTorseEquipee.GetComponent<BodyArmor>().endurance +
-        GetComponent<Player>().armureJambesEquipee.GetComponent<LegArmor>().endurance;
-
-        GetComponent<Player>().maxHealth = GetComponent<Player>().baseHealth + GetComponent<Player>().endurance;
-        GetComponent<Player>().activeSpeed = GetComponent<Player>().speed + GetComponent<Player>().agility * 0.1f;
-    }
+    
 
     public bool isInInventaire(GameObject obj)
     {
