@@ -148,7 +148,7 @@ MonoBehaviour:
   inventaire: {fileID: 0}
   player: {fileID: 0}
   consommationsRestantes: 1
-  typeConsommable: 2
+  typeConsommable: 3
   healPoints: 0
   levelPoints: 2
 --- !u!114 &7747275860225482558
