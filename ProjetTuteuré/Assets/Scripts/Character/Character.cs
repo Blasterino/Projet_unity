@@ -152,4 +152,9 @@ public abstract class Character : MonoBehaviour {
 
     }
 
+    public GameObject getCanvas()
+    {
+        return this.canvas;
+    }
+
 }

@@ -25,20 +25,25 @@ public class ItemConsommable : Item
                 }
                 playerScript.lifeBar.EnableLifeBar(true);
                 playerScript.lifeBar.SetProgress(playerScript.currentHealth / playerScript.maxHealth);
+                playerScript.ShowBonusEffect(healPoints,typeConsommable);
                 break;
             case 2:
                 playerScript.baseagility+= levelPoints;
+                playerScript.ShowBonusEffect(levelPoints, typeConsommable);
                 break;
             case 3:
                 playerScript.basestrength+= levelPoints;
+                playerScript.ShowBonusEffect(levelPoints, typeConsommable);
                 break;
             case 4:
                 playerScript.baseendurance += levelPoints;
+                playerScript.ShowBonusEffect(levelPoints, typeConsommable);
                 break;
             case 5:
                 playerScript.armeDistanceEquipee.GetComponent<RangedWeapon>().ammunition = playerScript.armeDistanceEquipee.GetComponent<RangedWeapon>().totalammunition;
+                playerScript.ShowBonusEffect(0, typeConsommable);
                 break;
-
+                
 
         }
         playerScript.gameObject.GetComponent<InventaireScript>().updateStats();

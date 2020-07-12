@@ -30,9 +30,15 @@ public class Player : Character {
     float switchCooldown = 0.0f;
 
     // true -> arme de cac, false -> arme a distance
-    public bool typeArmeEquipee = false; 
+    public bool typeArmeEquipee = false;
 
+    //Bonus/Health value
+    public GameObject bonusValuePrefab;
+
+    //dash prefab
     public GameObject slashPrefab;
+
+    //testbool
     public bool canOpenMenus;
 
     //attributs concernant l'inventaire
@@ -179,6 +185,51 @@ public class Player : Character {
         Move();
     }
 
+    
+    //Affiche un texte flotant de HP rendus ou de stats gagnées
+    //value : 1 : HP rendus
+    // 2 : bonus force
+    // 3 : bonus endu
+    // 4 : bonus agi
+    // 5 : ammo refill
+    public void ShowBonusEffect(int value, int type)
+    {
+        //Vector3 rndPos = new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f), 0);
+
+        GameObject obj = Instantiate(bonusValuePrefab);
+
+        switch (type)
+        {
+            case 1:
+                obj.GetComponent<Text>().text = "+ "+value.ToString()+" HP";
+                obj.GetComponent<Text>().color = Color.magenta;
+                break;
+            case 2:
+                obj.GetComponent<Text>().text = "+ " + value.ToString() + " Strenght";
+                obj.GetComponent<Text>().color = Color.red;
+                break;
+            case 3:
+                obj.GetComponent<Text>().text = "+ " + value.ToString() + " Stamina";
+                obj.GetComponent<Text>().color = Color.green;
+                break;
+            case 4:
+                obj.GetComponent<Text>().text = "+ " + value.ToString() + " Agility";
+                obj.GetComponent<Text>().color = Color.blue;
+                break;
+            case 5:
+                obj.GetComponent<Text>().text = "Ammo Refill";
+                obj.GetComponent<Text>().color = Color.gray;
+                break;
+        }
+        obj.GetComponent<DestroyTimer>().EnableTimer(2.0f);
+        //obj.GetComponent<MoveUpper>().moveDirection = new Vector3(UnityEngine.Random.Range(-1f, 1f), 1, 0);
+
+        obj.transform.SetParent(getCanvas().transform, false);
+        obj.transform.localPosition = transform.position;
+        obj.transform.localRotation = Quaternion.identity;
+        obj.transform.localScale = new Vector3(0.03f, 0.03f, 1f);
+
+    }
 
     private void GetInput()
     {

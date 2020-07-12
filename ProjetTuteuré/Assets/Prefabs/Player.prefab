@@ -406,9 +406,11 @@ MonoBehaviour:
   agility: 25
   activeSpeed: 10
   typeArmeEquipee: 0
+  bonusValuePrefab: {fileID: 7751498900248289221, guid: 03edbf289cbf8f947b8b4b1b457e0287,
+    type: 3}
   slashPrefab: {fileID: 5648402956995452155, guid: ffdec8e48e1a0524ea71d70d35e3c43c,
     type: 3}
-  canOpenMenus: 0
+  canOpenMenus: 1
   armeDistanceEquipee: {fileID: 1625000258791412, guid: 216ebf03540b03041afa3ad719973e06,
     type: 3}
   armeCorpsACorpsEquipee: {fileID: 1016660963751004, guid: 80b52f5aba0de6f4a9bcc9abe943e8f7,
@@ -423,9 +425,9 @@ MonoBehaviour:
   inputField: {fileID: 0}
   gameOverText: {fileID: 0}
   audioSource: {fileID: 0}
-  gameOverClip: {fileID: 0}
+  gameOverClip: {fileID: 8300000, guid: 9c30617404a5d684d8e6925163dfba67, type: 3}
   timerStart: 0
-  gold: 0
+  gold: 1000
   canMove: 0
   canAttack: 0
 --- !u!212 &212641445425918770
