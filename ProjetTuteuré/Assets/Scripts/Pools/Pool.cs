@@ -6,11 +6,6 @@ public class Pool : MonoBehaviour {
 
     public List<GameObject> listePool;
 
-    // Use this for initialization
-    void Start () {
-
-    }
-
     public GameObject tire()
     {
         int rnd = (int)(Random.Range(0, listePool.Count));

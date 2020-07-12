@@ -14,6 +14,8 @@ public class Enemy : Character {
 
     public int borneInfMoney, borneSupMoney;
 
+    public int dropChance;
+
     protected override void Start()
     {
         base.Start();
@@ -125,7 +127,7 @@ public class Enemy : Character {
     public void dropItem()
     {
         
-        if(UnityEngine.Random.Range(0f,100f) > 90)
+        if(UnityEngine.Random.Range(0f,100f) < dropChance)
         {
             GameObject objInst = Instantiate(GameObject.Find("PoolDropGobelin").GetComponent<Pool>().tire(), this.gameObject.transform.position, Quaternion.identity);
             GameObject.Find("GameManager").GetComponent<GameManager>().listeObjetsDroppés.Add(objInst);

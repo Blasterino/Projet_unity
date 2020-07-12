@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 
 public class MeleeWeapon : Weapon {
 
-    public int range;
+    public float range;
     public float hitRate;
 
 	public void Hit(Vector2 mousePosition)
@@ -23,11 +23,12 @@ public class MeleeWeapon : Weapon {
         projectileDirection.Normalize();
         float angle = (float)Math.Atan2(projectileDirection.y, projectileDirection.x);
         GameObject slash;
-        slash = Instantiate(GameObject.Find("Player").GetComponent<Player>().slashPrefab, GameObject.Find("Player").transform.position, Quaternion.identity);
-        slash.GetComponent<Transform>().position = new Vector3(slash.GetComponent<Transform>().position.x + ((float)Math.Cos(angle)),
-            slash.GetComponent<Transform>().position.y + ((float)Math.Sin(angle)),
-            slash.GetComponent<Transform>().position.z);
+        slash = Instantiate(player.GetComponent<Player>().slashPrefab, player.transform.position, Quaternion.identity);
+        slash.transform.position = new Vector3(slash.transform.position.x + ((float)Math.Cos(angle)),
+            slash.transform.position.y + ((float)Math.Sin(angle)),
+            slash.transform.position.z);
         angle = (float)(angle * (180 / Math.PI));
+        slash.transform.localScale = new Vector3(range, range, 1);
         //Debug.Log(angle);
         
         

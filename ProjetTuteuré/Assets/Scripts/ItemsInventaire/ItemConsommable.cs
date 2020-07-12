@@ -23,8 +23,7 @@ public class ItemConsommable : Item
                 {
                     playerScript.currentHealth += healPoints;
                 }
-                playerScript.lifeBar.EnableLifeBar(true);
-                playerScript.lifeBar.SetProgress(playerScript.currentHealth / playerScript.maxHealth);
+                playerScript.updateHP();
                 playerScript.ShowBonusEffect(healPoints,typeConsommable);
                 break;
             case 2:

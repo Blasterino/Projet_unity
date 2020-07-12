@@ -80,6 +80,9 @@ public class Player : Character {
     float fireKeyPressed;
     Vector2 mousePosition;
 
+    //texte des HP
+    public Text HPtext;
+
 
     void Awake()
     {
@@ -165,7 +168,11 @@ public class Player : Character {
         UIEquip = GameObject.FindGameObjectWithTag("ArmeUI");
         UIPanelCAC = UIEquip.GetComponent<RectTransform>().GetChild(1).GetComponent<RectTransform>().GetChild(0).gameObject.GetComponent<Image>();
         UIPanelDist = UIEquip.GetComponent<RectTransform>().GetChild(1).GetComponent<RectTransform>().GetChild(1).gameObject.GetComponent<Image>();
+
+        HPtext.text = currentHealth.ToString() + " / " + maxHealth.ToString();
     }
+
+    
 
     private void FixedUpdate() {
         if (Time.timeScale == 1)
@@ -188,9 +195,9 @@ public class Player : Character {
     
     //Affiche un texte flotant de HP rendus ou de stats gagnées
     //value : 1 : HP rendus
-    // 2 : bonus force
-    // 3 : bonus endu
-    // 4 : bonus agi
+    // 2 : bonus agi
+    // 3 : bonus str
+    // 4 : bonus endu
     // 5 : ammo refill
     public void ShowBonusEffect(int value, int type)
     {
@@ -205,15 +212,15 @@ public class Player : Character {
                 obj.GetComponent<Text>().color = Color.magenta;
                 break;
             case 2:
-                obj.GetComponent<Text>().text = "+ " + value.ToString() + " Strenght";
+                obj.GetComponent<Text>().text = "+ " + value.ToString() + " Agility";
                 obj.GetComponent<Text>().color = Color.red;
                 break;
             case 3:
-                obj.GetComponent<Text>().text = "+ " + value.ToString() + " Stamina";
+                obj.GetComponent<Text>().text = "+ " + value.ToString() + " Strenght";
                 obj.GetComponent<Text>().color = Color.green;
                 break;
             case 4:
-                obj.GetComponent<Text>().text = "+ " + value.ToString() + " Agility";
+                obj.GetComponent<Text>().text = "+ " + value.ToString() + " Stamina";
                 obj.GetComponent<Text>().color = Color.blue;
                 break;
             case 5:
@@ -325,8 +332,7 @@ public class Player : Character {
     public override void TakeDamage(float damage, Vector3 hitVector,float force, bool crit)
     {
         base.TakeDamage(damage, hitVector,force, crit);
-        lifeBar.EnableLifeBar(true);
-        lifeBar.SetProgress(currentHealth / maxHealth);
+        updateHP();
     }
 
     public override void Die()
@@ -444,6 +450,13 @@ public class Player : Character {
         }
     }
 
+    //Update l'affichage de la barre de vie et du compteur d'HP
+    public void updateHP()
+    {
+        lifeBar.EnableLifeBar(true);
+        lifeBar.SetProgress(currentHealth / maxHealth);
+        HPtext.text = currentHealth.ToString() + " / " + maxHealth.ToString();
+    }
 
     public void loadDatas(string filename, int numeroPartie)
     {
